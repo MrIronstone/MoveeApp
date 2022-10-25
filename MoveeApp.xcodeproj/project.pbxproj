@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A4E9BC33ACDE35E475A0310 /* Pods_MoveeApp_MoveeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272AFD7128380D2A93827AB4 /* Pods_MoveeApp_MoveeAppUITests.framework */; };
-		5B5496B3BB582D55A4C94569 /* Pods_MoveeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C36264DCD63F435D65FB78 /* Pods_MoveeApp.framework */; };
+		4D237BD56C1E2C10551EF9A0 /* Pods_MoveeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796CDD406271FCBC2904C76F /* Pods_MoveeApp.framework */; };
 		8404BB812907F38D003C3A44 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404BB802907F38D003C3A44 /* NetworkManager.swift */; };
 		8404BB842907F4DF003C3A44 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404BB832907F4DF003C3A44 /* Title.swift */; };
 		8404BB892908194A003C3A44 /* ButtonAndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404BB882908194A003C3A44 /* ButtonAndResultView.swift */; };
@@ -21,7 +20,8 @@
 		84AB63F42905B08400BF8FE9 /* MoveeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63F32905B08400BF8FE9 /* MoveeAppTests.swift */; };
 		84AB63FE2905B08400BF8FE9 /* MoveeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63FD2905B08400BF8FE9 /* MoveeAppUITests.swift */; };
 		84AB64002905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63FF2905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift */; };
-		F4F4B2D0E0D45A1166385729 /* Pods_MoveeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 595127586168E34EBC23DAD5 /* Pods_MoveeAppTests.framework */; };
+		8979F35DFDAA413734031CD2 /* Pods_MoveeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963C23AE769D3E58E71B9783 /* Pods_MoveeAppTests.framework */; };
+		A5B4F9B8F02714567864D60B /* Pods_MoveeApp_MoveeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AADC152BE96FB1EFBBF90C /* Pods_MoveeApp_MoveeAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		206652D1FFEBFB6CB969D8B2 /* Pods-MoveeApp-MoveeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp-MoveeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoveeApp-MoveeAppUITests/Pods-MoveeApp-MoveeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		272AFD7128380D2A93827AB4 /* Pods_MoveeApp_MoveeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeApp_MoveeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CFCF9EE2E6535B86AE8DAEE /* Pods-MoveeApp-MoveeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp-MoveeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoveeApp-MoveeAppUITests/Pods-MoveeApp-MoveeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		595127586168E34EBC23DAD5 /* Pods_MoveeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78716F6397D2EEBA5169AADC /* Pods-MoveeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoveeAppTests/Pods-MoveeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7A92B6EAA8C1A36959557385 /* Pods-MoveeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoveeAppTests/Pods-MoveeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		0EAA1D6CBF2A5502E67ACCDE /* Pods-MoveeApp-MoveeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp-MoveeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoveeApp-MoveeAppUITests/Pods-MoveeApp-MoveeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		37981B2A09FB0F8B574761AB /* Pods-MoveeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp.debug.xcconfig"; path = "Target Support Files/Pods-MoveeApp/Pods-MoveeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		43BDABD09247899A6EE5E1E6 /* Pods-MoveeApp-MoveeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp-MoveeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoveeApp-MoveeAppUITests/Pods-MoveeApp-MoveeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		457A69A9DC84327ECEAE1AF9 /* Pods-MoveeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp.release.xcconfig"; path = "Target Support Files/Pods-MoveeApp/Pods-MoveeApp.release.xcconfig"; sourceTree = "<group>"; };
+		48AADC152BE96FB1EFBBF90C /* Pods_MoveeApp_MoveeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeApp_MoveeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		796CDD406271FCBC2904C76F /* Pods_MoveeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404BB802907F38D003C3A44 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8404BB832907F4DF003C3A44 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		8404BB882908194A003C3A44 /* ButtonAndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAndResultView.swift; sourceTree = "<group>"; };
@@ -63,9 +63,9 @@
 		84AB63F92905B08400BF8FE9 /* MoveeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AB63FD2905B08400BF8FE9 /* MoveeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveeAppUITests.swift; sourceTree = "<group>"; };
 		84AB63FF2905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B1C36264DCD63F435D65FB78 /* Pods_MoveeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF5218CD0F11368D3A39791B /* Pods-MoveeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp.debug.xcconfig"; path = "Target Support Files/Pods-MoveeApp/Pods-MoveeApp.debug.xcconfig"; sourceTree = "<group>"; };
-		CEC1FF23D14852A5C045842E /* Pods-MoveeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeApp.release.xcconfig"; path = "Target Support Files/Pods-MoveeApp/Pods-MoveeApp.release.xcconfig"; sourceTree = "<group>"; };
+		871C153373FE2279BBF4EC90 /* Pods-MoveeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoveeAppTests/Pods-MoveeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		963C23AE769D3E58E71B9783 /* Pods_MoveeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D7422E2709ED8517585B97 /* Pods-MoveeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoveeAppTests/Pods-MoveeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5496B3BB582D55A4C94569 /* Pods_MoveeApp.framework in Frameworks */,
+				4D237BD56C1E2C10551EF9A0 /* Pods_MoveeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F4B2D0E0D45A1166385729 /* Pods_MoveeAppTests.framework in Frameworks */,
+				8979F35DFDAA413734031CD2 /* Pods_MoveeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,32 +89,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A4E9BC33ACDE35E475A0310 /* Pods_MoveeApp_MoveeAppUITests.framework in Frameworks */,
+				A5B4F9B8F02714567864D60B /* Pods_MoveeApp_MoveeAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F54E9F6660CA2218C09A6AE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B1C36264DCD63F435D65FB78 /* Pods_MoveeApp.framework */,
-				272AFD7128380D2A93827AB4 /* Pods_MoveeApp_MoveeAppUITests.framework */,
-				595127586168E34EBC23DAD5 /* Pods_MoveeAppTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7ADCA0C6BD9ACDE7EC11B0D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BF5218CD0F11368D3A39791B /* Pods-MoveeApp.debug.xcconfig */,
-				CEC1FF23D14852A5C045842E /* Pods-MoveeApp.release.xcconfig */,
-				4CFCF9EE2E6535B86AE8DAEE /* Pods-MoveeApp-MoveeAppUITests.debug.xcconfig */,
-				206652D1FFEBFB6CB969D8B2 /* Pods-MoveeApp-MoveeAppUITests.release.xcconfig */,
-				78716F6397D2EEBA5169AADC /* Pods-MoveeAppTests.debug.xcconfig */,
-				7A92B6EAA8C1A36959557385 /* Pods-MoveeAppTests.release.xcconfig */,
+				37981B2A09FB0F8B574761AB /* Pods-MoveeApp.debug.xcconfig */,
+				457A69A9DC84327ECEAE1AF9 /* Pods-MoveeApp.release.xcconfig */,
+				43BDABD09247899A6EE5E1E6 /* Pods-MoveeApp-MoveeAppUITests.debug.xcconfig */,
+				0EAA1D6CBF2A5502E67ACCDE /* Pods-MoveeApp-MoveeAppUITests.release.xcconfig */,
+				871C153373FE2279BBF4EC90 /* Pods-MoveeAppTests.debug.xcconfig */,
+				96D7422E2709ED8517585B97 /* Pods-MoveeAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -143,7 +133,7 @@
 				84AB63FC2905B08400BF8FE9 /* MoveeAppUITests */,
 				84AB63DB2905B07E00BF8FE9 /* Products */,
 				7ADCA0C6BD9ACDE7EC11B0D3 /* Pods */,
-				5F54E9F6660CA2218C09A6AE /* Frameworks */,
+				B0269EEB052C684DF76B008E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +188,16 @@
 			path = MoveeAppUITests;
 			sourceTree = "<group>";
 		};
+		B0269EEB052C684DF76B008E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				796CDD406271FCBC2904C76F /* Pods_MoveeApp.framework */,
+				48AADC152BE96FB1EFBBF90C /* Pods_MoveeApp_MoveeAppUITests.framework */,
+				963C23AE769D3E58E71B9783 /* Pods_MoveeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,11 +205,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84AB64032905B08400BF8FE9 /* Build configuration list for PBXNativeTarget "MoveeApp" */;
 			buildPhases = (
-				28EC58A0C36335B4F8C1CF16 /* [CP] Check Pods Manifest.lock */,
+				3E0CAFF62ACD7168632A5738 /* [CP] Check Pods Manifest.lock */,
 				84AB63D62905B07E00BF8FE9 /* Sources */,
 				84AB63D72905B07E00BF8FE9 /* Frameworks */,
 				84AB63D82905B07E00BF8FE9 /* Resources */,
-				8404BB8529080C80003C3A44 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,7 +223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84AB64062905B08400BF8FE9 /* Build configuration list for PBXNativeTarget "MoveeAppTests" */;
 			buildPhases = (
-				F2BD51D66C94FB96BED2E7A9 /* [CP] Check Pods Manifest.lock */,
+				9C59B8CB0D2F0B85B029FF2B /* [CP] Check Pods Manifest.lock */,
 				84AB63EB2905B08400BF8FE9 /* Sources */,
 				84AB63EC2905B08400BF8FE9 /* Frameworks */,
 				84AB63ED2905B08400BF8FE9 /* Resources */,
@@ -243,7 +242,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84AB64092905B08400BF8FE9 /* Build configuration list for PBXNativeTarget "MoveeAppUITests" */;
 			buildPhases = (
-				AA90DDCD3CE08237BE39AF5A /* [CP] Check Pods Manifest.lock */,
+				E93D2362C388F6735F60F5E9 /* [CP] Check Pods Manifest.lock */,
 				84AB63F52905B08400BF8FE9 /* Sources */,
 				84AB63F62905B08400BF8FE9 /* Frameworks */,
 				84AB63F72905B08400BF8FE9 /* Resources */,
@@ -328,7 +327,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28EC58A0C36335B4F8C1CF16 /* [CP] Check Pods Manifest.lock */ = {
+		3E0CAFF62ACD7168632A5738 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,46 +349,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8404BB8529080C80003C3A44 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		AA90DDCD3CE08237BE39AF5A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoveeApp-MoveeAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2BD51D66C94FB96BED2E7A9 /* [CP] Check Pods Manifest.lock */ = {
+		9C59B8CB0D2F0B85B029FF2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -405,6 +365,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MoveeAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E93D2362C388F6735F60F5E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoveeApp-MoveeAppUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -577,7 +559,7 @@
 		};
 		84AB64042905B08400BF8FE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF5218CD0F11368D3A39791B /* Pods-MoveeApp.debug.xcconfig */;
+			baseConfigurationReference = 37981B2A09FB0F8B574761AB /* Pods-MoveeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -607,7 +589,7 @@
 		};
 		84AB64052905B08400BF8FE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEC1FF23D14852A5C045842E /* Pods-MoveeApp.release.xcconfig */;
+			baseConfigurationReference = 457A69A9DC84327ECEAE1AF9 /* Pods-MoveeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -637,7 +619,7 @@
 		};
 		84AB64072905B08400BF8FE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78716F6397D2EEBA5169AADC /* Pods-MoveeAppTests.debug.xcconfig */;
+			baseConfigurationReference = 871C153373FE2279BBF4EC90 /* Pods-MoveeAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -658,7 +640,7 @@
 		};
 		84AB64082905B08400BF8FE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A92B6EAA8C1A36959557385 /* Pods-MoveeAppTests.release.xcconfig */;
+			baseConfigurationReference = 96D7422E2709ED8517585B97 /* Pods-MoveeAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -679,7 +661,7 @@
 		};
 		84AB640A2905B08400BF8FE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CFCF9EE2E6535B86AE8DAEE /* Pods-MoveeApp-MoveeAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 43BDABD09247899A6EE5E1E6 /* Pods-MoveeApp-MoveeAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,7 +680,7 @@
 		};
 		84AB640B2905B08400BF8FE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 206652D1FFEBFB6CB969D8B2 /* Pods-MoveeApp-MoveeAppUITests.release.xcconfig */;
+			baseConfigurationReference = 0EAA1D6CBF2A5502E67ACCDE /* Pods-MoveeApp-MoveeAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
