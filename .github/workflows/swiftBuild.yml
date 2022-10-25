@@ -21,4 +21,5 @@ jobs:
         run: pod install --repo-update
         shell: bash
       - name: Build
-        run: swift build -v
+        run: |
+          xcodebuild -workspace MoveeApp.xcworkspace -scheme MoveeApp clean build -sdk iphoneos -configuration Development CODE_SIGNING_ALLOWED=No
