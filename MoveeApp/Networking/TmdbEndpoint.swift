@@ -9,6 +9,7 @@ import Foundation
 
 enum TmdbEndpoint: Endpoint {
     case getPopularMovies
+    case getNowPlayingMovies
     
     var scheme: String {
         switch self {
@@ -28,6 +29,8 @@ enum TmdbEndpoint: Endpoint {
         switch self {
         case .getPopularMovies:
             return "/3/movie/popular"
+        case .getNowPlayingMovies:
+            return "/3/movie/now_playing"
         }
     }
     
@@ -39,12 +42,18 @@ enum TmdbEndpoint: Endpoint {
             return [
                 URLQueryItem(name: "api_key", value: apiKey)
             ]
+        case .getNowPlayingMovies:
+            return [
+                URLQueryItem(name: "api_key", value: apiKey)
+            ]
         }
     }
     
     var method: String {
         switch self {
         case .getPopularMovies:
+            return "GET"
+        case .getNowPlayingMovies:
             return "GET"
         }
     }

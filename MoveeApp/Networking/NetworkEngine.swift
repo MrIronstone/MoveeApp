@@ -26,7 +26,7 @@ class NetworkEngine {
         // 3
         guard let url = components.url else { return }
         
-        print("URL is (\(url)")
+        // print("URL is (\(url)")
         
         
         // 4
