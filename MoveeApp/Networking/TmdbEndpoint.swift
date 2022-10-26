@@ -20,14 +20,14 @@ enum TmdbEndpoint: Endpoint {
     var baseURL: String {
         switch self {
         default:
-            return "api.themoviedb.org/3/"
+            return "api.themoviedb.org"
         }
     }
     
     var path: String {
         switch self {
         case .getPopularMovies:
-            return "movie/popular"
+            return "/3/movie/popular"
         }
     }
     
@@ -37,7 +37,7 @@ enum TmdbEndpoint: Endpoint {
         switch self {
         case .getPopularMovies:
             return [
-                URLQueryItem(name: "key", value: apiKey)
+                URLQueryItem(name: "api_key", value: apiKey)
             ]
         }
     }
