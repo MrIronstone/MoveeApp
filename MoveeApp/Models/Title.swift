@@ -12,17 +12,17 @@ struct TitlesResponse: Codable {
 }
 
 struct Title: Codable, Hashable {
-    let backdrop_path: String?
+    let backdropPath: String?
     let id: Int
-    let media_type: String?
-    let original_language: String?
-    let original_title: String?
+    let mediaType: String?
+    let originalLanguage: String?
+    let originalTitle: String?
     let name: String?
     let title: String?
     let popularity: Double?
-    let poster_path: String?
+    let posterPath: String?
     let overview: String?
-    let release_date: String?
-    let vote_average: Double?
-    let vote_count: Int?
+    let releaseDate: String?
+    let voteAverage: Double?
+    let voteCount: Int?
 }

@@ -6,7 +6,7 @@ target 'MoveeApp' do
   use_frameworks!
 
   # Pods for MoveeApp
-  pod 'SwiftLint', '~> 0.27'
+  pod 'SwiftLint'
 
   target 'MoveeAppTests' do
     inherit! :search_paths

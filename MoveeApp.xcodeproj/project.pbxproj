@@ -15,11 +15,6 @@
 		84AB63E02905B07E00BF8FE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63DF2905B07E00BF8FE9 /* ContentView.swift */; };
 		84AB63E22905B08300BF8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84AB63E12905B08300BF8FE9 /* Assets.xcassets */; };
 		84AB63E52905B08300BF8FE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84AB63E42905B08300BF8FE9 /* Preview Assets.xcassets */; };
-		84AB63E72905B08300BF8FE9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63E62905B08300BF8FE9 /* Persistence.swift */; };
-		84AB63EA2905B08300BF8FE9 /* MoveeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63E82905B08300BF8FE9 /* MoveeApp.xcdatamodeld */; };
-		84AB63F42905B08400BF8FE9 /* MoveeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63F32905B08400BF8FE9 /* MoveeAppTests.swift */; };
-		84AB63FE2905B08400BF8FE9 /* MoveeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63FD2905B08400BF8FE9 /* MoveeAppUITests.swift */; };
-		84AB64002905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63FF2905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift */; };
 		8979F35DFDAA413734031CD2 /* Pods_MoveeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963C23AE769D3E58E71B9783 /* Pods_MoveeAppTests.framework */; };
 		A5B4F9B8F02714567864D60B /* Pods_MoveeApp_MoveeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AADC152BE96FB1EFBBF90C /* Pods_MoveeApp_MoveeAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -56,13 +51,8 @@
 		84AB63DF2905B07E00BF8FE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84AB63E12905B08300BF8FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84AB63E42905B08300BF8FE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		84AB63E62905B08300BF8FE9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		84AB63E92905B08300BF8FE9 /* MoveeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoveeApp.xcdatamodel; sourceTree = "<group>"; };
 		84AB63EF2905B08400BF8FE9 /* MoveeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84AB63F32905B08400BF8FE9 /* MoveeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveeAppTests.swift; sourceTree = "<group>"; };
 		84AB63F92905B08400BF8FE9 /* MoveeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84AB63FD2905B08400BF8FE9 /* MoveeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveeAppUITests.swift; sourceTree = "<group>"; };
-		84AB63FF2905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		871C153373FE2279BBF4EC90 /* Pods-MoveeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoveeAppTests/Pods-MoveeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		963C23AE769D3E58E71B9783 /* Pods_MoveeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D7422E2709ED8517585B97 /* Pods-MoveeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveeAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoveeAppTests/Pods-MoveeAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,8 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				84AB63DC2905B07E00BF8FE9 /* MoveeApp */,
-				84AB63F22905B08400BF8FE9 /* MoveeAppTests */,
-				84AB63FC2905B08400BF8FE9 /* MoveeAppUITests */,
 				84AB63DB2905B07E00BF8FE9 /* Products */,
 				7ADCA0C6BD9ACDE7EC11B0D3 /* Pods */,
 				B0269EEB052C684DF76B008E /* Frameworks */,
@@ -156,8 +144,6 @@
 				8404BB882908194A003C3A44 /* ButtonAndResultView.swift */,
 				84AB63DF2905B07E00BF8FE9 /* ContentView.swift */,
 				84AB63E12905B08300BF8FE9 /* Assets.xcassets */,
-				84AB63E62905B08300BF8FE9 /* Persistence.swift */,
-				84AB63E82905B08300BF8FE9 /* MoveeApp.xcdatamodeld */,
 				84AB63E32905B08300BF8FE9 /* Preview Content */,
 			);
 			path = MoveeApp;
@@ -169,23 +155,6 @@
 				84AB63E42905B08300BF8FE9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		84AB63F22905B08400BF8FE9 /* MoveeAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				84AB63F32905B08400BF8FE9 /* MoveeAppTests.swift */,
-			);
-			path = MoveeAppTests;
-			sourceTree = "<group>";
-		};
-		84AB63FC2905B08400BF8FE9 /* MoveeAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				84AB63FD2905B08400BF8FE9 /* MoveeAppUITests.swift */,
-				84AB63FF2905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift */,
-			);
-			path = MoveeAppUITests;
 			sourceTree = "<group>";
 		};
 		B0269EEB052C684DF76B008E /* Frameworks */ = {
@@ -209,6 +178,7 @@
 				84AB63D62905B07E00BF8FE9 /* Sources */,
 				84AB63D72905B07E00BF8FE9 /* Frameworks */,
 				84AB63D82905B07E00BF8FE9 /* Resources */,
+				84FF4DE729090DEF00A0A791 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -348,6 +318,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 		};
+		84FF4DE729090DEF00A0A791 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" lint\n\n";
+		};
 		9C59B8CB0D2F0B85B029FF2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -399,12 +386,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AB63E72905B08300BF8FE9 /* Persistence.swift in Sources */,
 				8404BB842907F4DF003C3A44 /* Title.swift in Sources */,
 				84AB63E02905B07E00BF8FE9 /* ContentView.swift in Sources */,
 				8404BB892908194A003C3A44 /* ButtonAndResultView.swift in Sources */,
 				8404BB812907F38D003C3A44 /* NetworkManager.swift in Sources */,
-				84AB63EA2905B08300BF8FE9 /* MoveeApp.xcdatamodeld in Sources */,
 				84AB63DE2905B07E00BF8FE9 /* MoveeAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,7 +398,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AB63F42905B08400BF8FE9 /* MoveeAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,8 +405,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AB64002905B08400BF8FE9 /* MoveeAppUITestsLaunchTests.swift in Sources */,
-				84AB63FE2905B08400BF8FE9 /* MoveeAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,19 +719,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		84AB63E82905B08300BF8FE9 /* MoveeApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				84AB63E92905B08300BF8FE9 /* MoveeApp.xcdatamodel */,
-			);
-			currentVersion = 84AB63E92905B08300BF8FE9 /* MoveeApp.xcdatamodel */;
-			path = MoveeApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 84AB63D22905B07E00BF8FE9 /* Project object */;
 }

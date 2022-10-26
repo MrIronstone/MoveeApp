@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ButtonAndResultView: View {
-    
     @State var titles = ""
     
     var body: some View {
-            
         VStack {
             Text("To Get Popular Movies List, \nClick the button below")
             Button {
@@ -22,7 +20,7 @@ struct ButtonAndResultView: View {
                         titles = ""
                         for title in success {
                             guard let safeTitle = title.title else { return }
-                            titles = titles + "\(safeTitle)\n"
+                            titles += "\(safeTitle)\n"
                         }
                     case .failure(let failure):
                         print(failure.localizedDescription)
@@ -38,7 +36,6 @@ struct ButtonAndResultView: View {
                 Text("Reset")
                     .foregroundColor(.red)
             }
-
         }
     }
 }
