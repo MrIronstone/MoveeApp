@@ -14,11 +14,11 @@ struct ButtonAndResultView: View {
         VStack {
             Text("To Get Popular Movies List, \nClick the button below")
             Button {
-                NetworkManager.shared.getPopularMovies { result in
+                NetworkEngine.request(endpoint: TmdbEndpoint.getPopularMovies) { (result: Result<TitlesResponse, Error>) in
                     switch result {
                     case .success(let success):
                         titles = ""
-                        for title in success {
+                        for title in success.results {
                             guard let safeTitle = title.title else { return }
                             titles += "\(safeTitle)\n"
                         }
