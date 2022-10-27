@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListView: View {
-    @StateObject private var viewModel = ViewModel()
+    @ObservedObject private var viewModel = ListViewModel()
     
     var body: some View {
         VStack {

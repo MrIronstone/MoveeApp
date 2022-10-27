@@ -9,11 +9,11 @@ import Foundation
 
 
 class NetworkEngine {
-    // Executes the web call and will decode the JSON response into the Codable object provided
-    // - Parameters:
-    // - endpoint: the endpoint to make HTTP request against
-    // - completion: the JSON response converted to provided Codable object, if successful, or failure otherwise
     // 1
+    /// Executes the web call and will decode the JSON response into the Codable object provided
+    /// - Parameters:
+    ///   - endpoint: the endpoint to make HTTP request against
+    ///   - completion: the JSON response converted to provided Codable object, if successful, or failure otherwise
     
     class func request<T: Codable>(endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
         // 2
