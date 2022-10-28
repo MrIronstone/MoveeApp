@@ -11,29 +11,22 @@ struct ListView: View {
     @ObservedObject private var viewModel = ListViewModel()
     
     var body: some View {
-        VStack {
-            Button {
-                viewModel.fetchPopularMovies()
-            } label: {
-                Label("Get Popular Movies", systemImage: "arrow.down.app.fill")
-            } .buttonStyle(.borderedProminent)
-            Text(viewModel.titles)
-            Button {
-                viewModel.fetchNowPlayingMoviesList()
-            } label: {
-                Label("Get Now Playin Movies", systemImage: "arrow.down.app.fill")
-            } .buttonStyle(.borderedProminent)
-            Button {
-                viewModel.clearTitles()
-            } label: {
-                Text("Reset")
-                    .foregroundColor(.red)
-            }
+        NavigationView {
+            List {
+                ForEach(viewModel.titles) { row in
+                    NavigationLink {
+                        Text(row.title ?? "")
+                    } label: {
+                        ListCellView(title: row)
+                            .frame(height: 100)
+                    }
+                }
+            } .navigationTitle("Popular Movies")
         }
     }
 }
 
-struct ButtonAndResultView_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()
     }

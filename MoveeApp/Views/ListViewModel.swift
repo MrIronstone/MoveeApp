@@ -8,7 +8,7 @@
 import Foundation
 
 class ListViewModel: ObservableObject {
-    @Published var titles = ""
+    @Published var titles: [Title] = []
     
     init() {
         fetchPopularMovies()
@@ -18,11 +18,7 @@ class ListViewModel: ObservableObject {
         NetworkEngine.request(endpoint: TmdbEndpoint.getPopularMovies) { [weak self] (result: Result<TitlesResponse, Error>) in
             switch result {
             case .success(let success):
-                self?.titles = ""
-                for title in success.results {
-                    guard let safeTitle = title.title else { return }
-                    self?.titles += "\(safeTitle)\n"
-                }
+                self?.titles = success.results
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
@@ -33,11 +29,7 @@ class ListViewModel: ObservableObject {
         NetworkEngine.request(endpoint: TmdbEndpoint.getNowPlayingMovies) { [weak self] (result: Result<TitlesResponse, Error>) in
             switch result {
             case .success(let success):
-                self?.titles = ""
-                for title in success.results {
-                    guard let safeTitle = title.title else { return }
-                    self?.titles += "\(safeTitle)\n"
-                }
+                self?.titles = success.results
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
@@ -45,6 +37,6 @@ class ListViewModel: ObservableObject {
     }
     
     public func clearTitles() {
-        self.titles = ""
+        self.titles = [Title]()
     }
 }

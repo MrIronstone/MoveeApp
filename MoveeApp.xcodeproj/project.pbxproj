@@ -10,6 +10,8 @@
 		4D237BD56C1E2C10551EF9A0 /* Pods_MoveeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796CDD406271FCBC2904C76F /* Pods_MoveeApp.framework */; };
 		8404BB842907F4DF003C3A44 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404BB832907F4DF003C3A44 /* Title.swift */; };
 		8404BB892908194A003C3A44 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404BB882908194A003C3A44 /* ListView.swift */; };
+		843B1080290B27B100AE6EEF /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B107F290B27B100AE6EEF /* ListCellView.swift */; };
+		848EAD23290C4A04007C8A1E /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848EAD22290C4A04007C8A1E /* CustomImageView.swift */; };
 		84AB63DE2905B07E00BF8FE9 /* MoveeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63DD2905B07E00BF8FE9 /* MoveeAppApp.swift */; };
 		84AB63E02905B07E00BF8FE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB63DF2905B07E00BF8FE9 /* ContentView.swift */; };
 		84AB63E22905B08300BF8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84AB63E12905B08300BF8FE9 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		796CDD406271FCBC2904C76F /* Pods_MoveeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404BB832907F4DF003C3A44 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		8404BB882908194A003C3A44 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		843B107F290B27B100AE6EEF /* ListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
+		848EAD22290C4A04007C8A1E /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		84AB63DA2905B07E00BF8FE9 /* MoveeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AB63DD2905B07E00BF8FE9 /* MoveeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveeAppApp.swift; sourceTree = "<group>"; };
 		84AB63DF2905B07E00BF8FE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				8404BB882908194A003C3A44 /* ListView.swift */,
 				84FF4DF529097B4600A0A791 /* ListViewModel.swift */,
 				84AB63DF2905B07E00BF8FE9 /* ContentView.swift */,
+				843B107F290B27B100AE6EEF /* ListCellView.swift */,
+				848EAD22290C4A04007C8A1E /* CustomImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,6 +417,8 @@
 				8404BB892908194A003C3A44 /* ListView.swift in Sources */,
 				84FF4DEE290920E500A0A791 /* TmdbEndpoint.swift in Sources */,
 				84AB63DE2905B07E00BF8FE9 /* MoveeAppApp.swift in Sources */,
+				843B1080290B27B100AE6EEF /* ListCellView.swift in Sources */,
+				848EAD23290C4A04007C8A1E /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
