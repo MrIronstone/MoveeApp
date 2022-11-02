@@ -7,6 +7,7 @@ target 'MoveeApp' do
 
   # Pods for MoveeApp
   pod 'SwiftLint'
+  pod 'Kingfisher'
 
   target 'MoveeAppTests' do
     inherit! :search_paths

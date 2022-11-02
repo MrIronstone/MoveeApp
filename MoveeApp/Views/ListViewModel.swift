@@ -9,9 +9,11 @@ import Foundation
 
 class ListViewModel: ObservableObject {
     @Published var titles: [Title] = []
+    @Published var movieGenres: GenreResponse = GenreResponse(genres: [])
     
     init() {
         fetchPopularMovies()
+        fetchMovieGenreList()
     }
     
     public func fetchPopularMovies() {
@@ -32,6 +34,17 @@ class ListViewModel: ObservableObject {
                 self?.titles = success.results
             case .failure(let failure):
                 print(failure.localizedDescription)
+            }
+        }
+    }
+    
+    public func fetchMovieGenreList() {
+        NetworkEngine.request(endpoint: TmdbEndpoint.getMovieGenreList) { [weak self] (result: Result<GenreResponse, Error>) in
+            switch result {
+            case .success(let succededGenreResponse):
+                self?.movieGenres = succededGenreResponse
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

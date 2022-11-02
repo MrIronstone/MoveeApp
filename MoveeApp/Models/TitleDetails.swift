@@ -1,19 +1,22 @@
 //
-//  File.swift
+//  TitleDetails.swift
 //  MoveeApp
 //
-//  Created by Demirtas, Husamettin on 25.10.2022.
+//  Created by admin on 30.10.2022.
 //
 
 import Foundation
 
-struct TitlesResponse: Codable {
+struct TitleDetailsReponse: Codable {
     let results: [Title]
 }
 
-struct Title: Codable, Hashable, Identifiable {
+struct TitleDetails: Codable, Hashable, Identifiable {
     let backdropPath: String?
     let id: Int
+    let imdbId: Int
+    let revenue: Int?
+    let runtime: Int?
     let genreIds: [Int?]?
     let originalLanguage: String?
     let originalTitle: String?
@@ -29,6 +32,9 @@ struct Title: Codable, Hashable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case backdropPath = "backdrop_path"
         case id = "id"
+        case imdbId = "imdb_id"
+        case revenue = "revenue"
+        case runtime = "runtime"
         case genreIds = "genre_ids"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"

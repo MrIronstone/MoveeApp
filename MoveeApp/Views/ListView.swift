@@ -15,10 +15,10 @@ struct ListView: View {
             List {
                 ForEach(viewModel.titles) { row in
                     NavigationLink {
-                        Text(row.title ?? "")
+                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
                     } label: {
-                        ListCellView(title: row)
-                            .frame(height: 100)
+                        ListCellView(viewModel: ListCellViewModel(title: row, genreList: viewModel.movieGenres))
+                            .frame(height: 120)
                     }
                 }
             } .navigationTitle("Popular Movies")

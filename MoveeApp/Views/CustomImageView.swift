@@ -6,28 +6,47 @@
 //
 
 import SwiftUI
+import Kingfisher
+
+enum ImageRes {
+    case lowRes
+    case highRes
+}
 
 struct CustomImageView: View {
-    var safeUrl: URL
+    let imageRes: ImageRes
+    let path: String?    
     
-    let imageSize: CGFloat = 100
+    init(path: String?, imageRes: ImageRes = .lowRes) {
+        self.imageRes = imageRes
+        self.path = path
+    }
     
     var body: some View {
-        AsyncImage(url: safeUrl ) { image in
-            image.resizable()
-                .scaledToFill()
-                .frame(width: (imageSize * 16) / 9, height: imageSize)
-        } placeholder: {
-            ProgressView()
-                .frame(width: 100, height: 100)
+        if let safePath = path {
+            if let safeUrl = URL(string: TmdbEndpoint.getImage(path: safePath, imageRes: imageRes).returnUrlAsString()) {
+                KFImage(safeUrl)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(10)
+            }
         }
+        
+        /*
+         AsyncImage(url: safeUrl ) { image in
+         image.resizable()
+         .scaledToFit()
+         // .frame(width: (imageSize * 9) / 16, height: imageSize )
+         } placeholder: {
+         ProgressView()
+         //  .frame(width: (imageSize * 9) / 16, height: imageSize )
+         }
+         */
     }
 }
 
 struct CustomImageView_Previews: PreviewProvider {
     static var previews: some View {
-        if let safeUrl = URL(string: "https://image.tmdb.org/t/p/w500/yw8NQyvbeNXoZO6v4SEXrgQ27Ll.jpg") {
-            CustomImageView(safeUrl: safeUrl)
-        }
+        CustomImageView(path: "/yw8NQyvbeNXoZO6v4SEXrgQ27Ll.jpg")
     }
 }

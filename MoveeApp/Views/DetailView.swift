@@ -1,29 +1,27 @@
 //
-//  ListCellView.swift
+//  DetailView.swift
 //  MoveeApp
 //
-//  Created by Demirtas, Husamettin on 27.10.2022.
+//  Created by admin on 29.10.2022.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct ListCellView: View {
-    @ObservedObject private var viewModel: ListCellViewModel
+struct DetailView: View {
+    @ObservedObject private var viewModel: DetailViewModel
     
-    init(viewModel: ListCellViewModel) {
+    init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        HStack(alignment: .center, spacing: 10) {
-            CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
-            
-            VStack(alignment: .leading, spacing: 25) {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                CustomImageView(path: viewModel.title.backdropPath, imageRes: .highRes)
+                
                 Text(viewModel.getTitleName())
-                    .font(.system(size: 28))
-                    .fontWeight(.bold)
-                    .lineLimit(1)
+                    .font(.system(.largeTitle))
                 Text(viewModel.getGenreString())
                 HStack {
                     HStack {
@@ -42,14 +40,13 @@ struct ListCellView: View {
                     .background(.blue)
                     .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
                 }
-            }
-        } .contentShape(Rectangle())
+            } .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+        } .navigationTitle(viewModel.getTitleName())
     }
 }
 
-
-struct ListCellView_Previews: PreviewProvider {
+struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListCellView(viewModel: ListCellViewModel(title: Title.example1(), genreList: GenreResponse.example1()))
+        DetailView(viewModel: DetailViewModel(title: Title.example1(), genreList: GenreResponse.example1()))
     }
 }
