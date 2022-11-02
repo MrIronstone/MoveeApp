@@ -37,7 +37,7 @@ enum TmdbEndpoint: Endpoint {
             return "/3/movie/now_playing"
         case .getMovieGenreList:
             return "/3/genre/movie/list"
-        case .getImage(let path, let imageRes):
+        case let .getImage(path, imageRes):
             switch imageRes {
             case .lowRes:
                 return "/t/p/w500\(path)"
@@ -75,7 +75,7 @@ enum TmdbEndpoint: Endpoint {
         
         // 3
         guard let url = components.url else { return "" }
-                
+        
         return url.absoluteString
     }
 }

@@ -15,7 +15,6 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - anyobject_protocol
   - array_init
-  - closure_body_length
   - closure_end_indentation
   - closure_spacing
   - collection_alignment
@@ -84,10 +83,6 @@ block_based_kvo:
 # https://wiki.adesso-mobile.de/requirements/SOF/AMS-IND-SwiftLint-32
 # class_delegate_protocol:
 #   severity: error
-
-closure_body_length:
-  warning: 20
-  error: 30
 
 # https://wiki.adesso-mobile.de/requirements/SOF/AMS-IND-SwiftLint-65
 closing_brace:
@@ -380,9 +375,6 @@ mark:
 #  warning: [open, public, internal]
 
 # https://wiki.adesso-mobile.de/requirements/SOF/AMS-IND-SwiftLint-95
-multiline_arguments:
-  severity: error
-  first_argument_location: "any_line" # Values: any_line | same_line | next_line
 
 #multiline_arguments_brackets:
 #  severity: warning
