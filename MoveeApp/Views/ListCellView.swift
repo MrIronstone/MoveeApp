@@ -20,21 +20,21 @@ struct ListCellView: View {
             CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
             
             VStack(alignment: .leading, spacing: 25) {
-                Text(viewModel.getTitleName())
+                Text(viewModel.title.getTitleName())
                     .font(.system(size: 28))
                     .fontWeight(.bold)
                     .lineLimit(1)
-                Text(viewModel.getGenreString())
+                Text(viewModel.title.getGenreString(with: viewModel.genreList))
                 HStack {
                     HStack {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
-                        Text(viewModel.getNewDateStyle())
+                        Text(viewModel.title.getNewDateStyle())
                     }
                     Divider().fixedSize()
                     HStack {
                         Image(systemName: "star.fill")
-                        Text(viewModel.getVoteAverage())
+                        Text(viewModel.title.getVoteAverage())
                     }
                     .padding(.horizontal, 10.0)
                     .padding(.vertical, 5.0)

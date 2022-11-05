@@ -18,21 +18,21 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                CustomImageView(path: viewModel.title.backdropPath, imageRes: .highRes)
+                CustomImageView(path: viewModel.title.backdropPath, imageRes: .lowRes)
                 
-                Text(viewModel.getTitleName())
+                Text(viewModel.title.getTitleName())
                     .font(.system(.largeTitle))
-                Text(viewModel.getGenreString())
+                Text(viewModel.title.getGenreString(with: viewModel.genreList))
                 HStack {
                     HStack {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
-                        Text(viewModel.getNewDateStyle())
+                        Text(viewModel.title.getNewDateStyle())
                     }
                     Divider().fixedSize()
                     HStack {
                         Image(systemName: "star.fill")
-                        Text(viewModel.getVoteAverage())
+                        Text(viewModel.title.getVoteAverage())
                     }
                     .padding(.horizontal, 10.0)
                     .padding(.vertical, 5.0)
@@ -41,7 +41,7 @@ struct DetailView: View {
                     .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
                 }
             } .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-        } .navigationTitle(viewModel.getTitleName())
+        } .navigationTitle(viewModel.title.getTitleName())
     }
 }
 

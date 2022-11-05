@@ -10,7 +10,10 @@ import CoreData
 
 struct ContentView: View {
     var body: some View {
-        ListView()
+        VStack {
+            CardView()
+            ListView()
+        }
     }
 }
 
