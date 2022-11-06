@@ -13,7 +13,19 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.titles) { row in
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.nowPlayingMovies) { row in
+                            NavigationLink {
+                                DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
+                            } label: {
+                                CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.movieGenres))
+                            }
+                        }
+                    }
+                } .navigationTitle("Now Playing Movies")
+    
+                ForEach(viewModel.populerMovies) { row in
                     NavigationLink {
                         DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
                     } label: {
