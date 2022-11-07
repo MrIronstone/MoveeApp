@@ -32,7 +32,7 @@ struct CardCellView: View {
                     .fontWeight(.bold)
                     .lineLimit(1)
                 Text(viewModel.title.getGenreString(with: viewModel.genreList))
-            }
+            } .foregroundColor(.black)
         } .frame(width: 260)
     }
 }
