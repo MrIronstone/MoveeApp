@@ -16,25 +16,28 @@ struct ListCellView: View {
     }
     
     var body: some View {
-        HStack(alignment: .center, spacing: 10) {
+        HStack(spacing: 10) {
             CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
-            
+                .frame(height: 150)
             VStack(alignment: .leading, spacing: 25) {
                 Text(viewModel.title.getTitleName())
-                    .font(.system(size: 28))
+                    .font(.system(size: 24))
                     .fontWeight(.bold)
                     .lineLimit(1)
                 Text(viewModel.title.getGenreString(with: viewModel.genreList))
+                    .font(.system(size: 18))
                 HStack {
                     HStack {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
                         Text(viewModel.title.getNewDateStyle())
+                            .font(.system(size: 14))
                     }
                     Divider().fixedSize()
                     HStack {
                         Image(systemName: "star.fill")
                         Text(viewModel.title.getVoteAverage())
+                            .font(.system(size: 12))
                     }
                     .padding(.horizontal, 10.0)
                     .padding(.vertical, 5.0)
@@ -43,7 +46,9 @@ struct ListCellView: View {
                     .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
                 }
             }
-        } .contentShape(Rectangle())
+            Spacer()
+        }   .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 

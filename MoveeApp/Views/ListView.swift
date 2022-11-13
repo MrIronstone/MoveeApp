@@ -12,37 +12,42 @@ struct ListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 20) {
-                            ForEach(viewModel.nowPlayingMovies) { row in
-                                NavigationLink {
-                                    DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
-                                } label: {
-                                    CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.movieGenres))
+            ScrollView {
+                VStack {
+                    VStack {
+                        Text("Movies")
+                            .font(.system(size: 41).bold())
+                            .padding(EdgeInsets(top: 50, leading: -150, bottom: 0, trailing: 0))
+                            .foregroundColor(Color.white)
+                            .frame(width: 400, height: 200, alignment: .top)
+                            .background(Color.blue)
+                        
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 10) {
+                                ForEach(viewModel.nowPlayingMovies) { row in
+                                    NavigationLink {
+                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
+                                    } label: {
+                                        CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.movieGenres))
+                                    }
                                 }
                             }
-                        }
+                        } .padding(EdgeInsets(top: -70, leading: 0, bottom: 0, trailing: 0))
                     }
-                } header: {
-                    Text("NOW PLAYING MOVIES")
-                        .font(.title)
-                        .foregroundColor(Color.black)
-                }
-                Section {
-                    ForEach(viewModel.populerMovies) { row in
-                        NavigationLink {
-                            DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
-                        } label: {
-                            ListCellView(viewModel: ListCellViewModel(title: row, genreList: viewModel.movieGenres))
-                                .frame(height: 120)
+                    Divider()
+                    VStack(alignment: .leading) {
+                        Text("Popular")
+                            .font(.system(size: 41).bold())
+                        
+                        ForEach(viewModel.populerMovies) { row in
+                            NavigationLink {
+                                DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
+                            } label: {
+                                ListCellView(viewModel: ListCellViewModel(title: row, genreList: viewModel.movieGenres))
+                            }
                         }
-                    }
-                } header: {
-                    Text("POPULAR MOVIES")
-                        .font(.title)
-                        .foregroundColor(Color.black)
+                    } .foregroundColor(Color.black)
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 }
             }
         }
