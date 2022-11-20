@@ -17,10 +17,11 @@ struct ListView: View {
                     VStack {
                         Text("Movies")
                             .font(.system(size: 41).bold())
-                            .padding(EdgeInsets(top: 50, leading: -150, bottom: 0, trailing: 0))
+                            .padding(EdgeInsets(top: 150, leading: -150, bottom: 0, trailing: 0))
                             .foregroundColor(Color.white)
-                            .frame(width: 400, height: 200, alignment: .top)
+                            .frame(width: 400, height: 300, alignment: .top)
                             .background(Color.blue)
+                            .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
                         
                         ScrollView(.horizontal) {
                             HStack(spacing: 10) {
@@ -37,7 +38,7 @@ struct ListView: View {
                     Divider()
                     VStack(alignment: .leading) {
                         Text("Popular")
-                            .font(.system(size: 41).bold())
+                            .font(.system(size: 22).bold())
                         
                         ForEach(viewModel.populerMovies) { row in
                             NavigationLink {
@@ -47,7 +48,7 @@ struct ListView: View {
                             }
                         }
                     } .foregroundColor(Color.black)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
         }

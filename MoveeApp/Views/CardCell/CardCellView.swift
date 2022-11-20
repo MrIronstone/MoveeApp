@@ -34,6 +34,8 @@ struct CardCellView: View {
                         .fontWeight(.bold)
                         .lineLimit(1)
                     Text(viewModel.title.getGenreString(with: viewModel.genreList))
+                        .font(.system(size: 15))
+                        .lineLimit(1)
                 } .foregroundColor(.black)
             } .offset(CGSize(width: -30, height: 0))
         } .frame(width: 360, height: 530)

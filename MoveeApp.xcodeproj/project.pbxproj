@@ -133,6 +133,42 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		843D29ED292A74CE00FBDE89 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				847A3809290DCA1500BAA616 /* DetailView.swift */,
+				842766D329110235005D0281 /* DetailViewModel.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		843D29EE292A74D600FBDE89 /* CardCell */ = {
+			isa = PBXGroup;
+			children = (
+				84277B4D2916BE8F00685227 /* CardCellViewModel.swift */,
+				8463B41D2918E948001BEA3D /* CardCellView.swift */,
+			);
+			path = CardCell;
+			sourceTree = "<group>";
+		};
+		843D29EF292A74E200FBDE89 /* ListCellView */ = {
+			isa = PBXGroup;
+			children = (
+				843B107F290B27B100AE6EEF /* ListCellView.swift */,
+				84BEF1362911325E00A208F5 /* ListCellViewModel.swift */,
+			);
+			path = ListCellView;
+			sourceTree = "<group>";
+		};
+		843D29F0292A74F500FBDE89 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				8404BB882908194A003C3A44 /* ListView.swift */,
+				84FF4DF529097B4600A0A791 /* ListViewModel.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
 		84AB63D12905B07E00BF8FE9 = {
 			isa = PBXGroup;
 			children = (
@@ -179,14 +215,10 @@
 			children = (
 				848EAD22290C4A04007C8A1E /* CustomImageView.swift */,
 				84AB63DF2905B07E00BF8FE9 /* ContentView.swift */,
-				8404BB882908194A003C3A44 /* ListView.swift */,
-				84FF4DF529097B4600A0A791 /* ListViewModel.swift */,
-				843B107F290B27B100AE6EEF /* ListCellView.swift */,
-				84BEF1362911325E00A208F5 /* ListCellViewModel.swift */,
-				847A3809290DCA1500BAA616 /* DetailView.swift */,
-				842766D329110235005D0281 /* DetailViewModel.swift */,
-				84277B4D2916BE8F00685227 /* CardCellViewModel.swift */,
-				8463B41D2918E948001BEA3D /* CardCellView.swift */,
+				843D29F0292A74F500FBDE89 /* ListView */,
+				843D29EF292A74E200FBDE89 /* ListCellView */,
+				843D29ED292A74CE00FBDE89 /* DetailView */,
+				843D29EE292A74D600FBDE89 /* CardCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";

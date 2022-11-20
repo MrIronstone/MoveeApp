@@ -26,6 +26,7 @@ struct ListCellView: View {
                     .lineLimit(1)
                 Text(viewModel.title.getGenreString(with: viewModel.genreList))
                     .font(.system(size: 18))
+                    .lineLimit(1)
                 HStack {
                     HStack {
                         Image(systemName: "calendar")
@@ -45,10 +46,12 @@ struct ListCellView: View {
                     .background(.blue)
                     .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
                 }
-            }
+            } .frame(maxWidth: .infinity)
             Spacer()
         }   .background(.ultraThinMaterial)
+            .shadow(color: .black,radius: 360, x: 0, y: 5)
             .clipShape(RoundedRectangle(cornerRadius: 10))
+
     }
 }
 
