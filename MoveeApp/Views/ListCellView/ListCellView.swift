@@ -49,9 +49,8 @@ struct ListCellView: View {
             } .frame(maxWidth: .infinity)
             Spacer()
         }   .background(.ultraThinMaterial)
-            .shadow(color: .black,radius: 360, x: 0, y: 5)
+            .shadow(color: .black, radius: 360, x: 0, y: 5)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-
     }
 }
 
