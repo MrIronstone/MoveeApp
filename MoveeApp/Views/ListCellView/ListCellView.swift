@@ -48,9 +48,12 @@ struct ListCellView: View {
                 }
             } .frame(maxWidth: .infinity)
             Spacer()
-        }   .background(.ultraThinMaterial)
-            .shadow(color: .black, radius: 360, x: 0, y: 5)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+        }   .background(.regularMaterial)
+            .cornerRadius(10)
+            .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray.opacity(0.4), lineWidth: 1.5)
+            }
     }
 }
 

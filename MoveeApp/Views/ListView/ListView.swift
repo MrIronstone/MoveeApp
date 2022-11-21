@@ -24,7 +24,7 @@ struct ListView: View {
                             .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
                         
                         ScrollView(.horizontal) {
-                            HStack(spacing: 10) {
+                            LazyHStack(spacing: 10) {
                                 ForEach(viewModel.nowPlayingMovies) { row in
                                     NavigationLink {
                                         DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
@@ -36,7 +36,7 @@ struct ListView: View {
                         } .padding(EdgeInsets(top: -70, leading: 0, bottom: 0, trailing: 0))
                     }
                     Divider()
-                    VStack(alignment: .leading) {
+                    LazyVStack(alignment: .leading) {
                         Text("Popular")
                             .font(.system(size: 22).bold())
                         
