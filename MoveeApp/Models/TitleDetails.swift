@@ -1,19 +1,22 @@
 //
-//  File.swift
+//  TitleDetails.swift
 //  MoveeApp
 //
-//  Created by Demirtas, Husamettin on 25.10.2022.
+//  Created by admin on 30.10.2022.
 //
 
 import Foundation
 
-struct TitlesResponse: Codable {
+struct TitleDetailsReponse: Codable {
     let results: [Title]
 }
 
-struct Title: Codable, Hashable, Identifiable {
+struct TitleDetails: Codable, Hashable, Identifiable {
     let backdropPath: String?
     let id: Int
+    let imdbId: Int
+    let revenue: Int?
+    let runtime: Int?
     let genreIds: [Int?]?
     let originalLanguage: String?
     let originalTitle: String?
@@ -29,6 +32,9 @@ struct Title: Codable, Hashable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case backdropPath = "backdrop_path"
         case id = "id"
+        case imdbId = "imdb_id"
+        case revenue = "revenue"
+        case runtime = "runtime"
         case genreIds = "genre_ids"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
@@ -59,38 +65,5 @@ struct Title: Codable, Hashable, Identifiable {
             voteCount: 159
         )
         return exampleTitle
-    }
-}
-
-extension Title {
-    func getGenreString(with genreList: GenreResponse) -> String {
-        var genres: [String] = []
-        guard let safeTitleGenreList = self.genreIds else { return "" }
-        for genre in genreList.genres where safeTitleGenreList.contains(genre.id) {
-            genres.append(genre.name)
-        }
-        return genres.joined(separator: ", ")
-    }
-    
-    func getNewDateStyle() -> String {
-        if let safeDate = self.releaseDate {
-            let year = safeDate.components(separatedBy: "-")[0]
-            let month = safeDate.components(separatedBy: "-")[1]
-            let day = safeDate.components(separatedBy: "-")[2]
-            let newDate = "\(day).\(month).\(year)"
-            return newDate
-        }
-        return "01.01.1900"
-    }
-    
-    func getTitleName() -> String {
-        guard let safeTitleName = self.title else { return "Unknown Title"}
-        return safeTitleName
-    }
-    
-    func getVoteAverage() -> String {
-        guard let safeVoteAverage = self.voteAverage else { return "0.0"}
-        let newVoteAverage = String(format: "%.1f", safeVoteAverage )
-        return newVoteAverage
     }
 }
