@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TitlesResponse: Codable {
     let results: [Title]
@@ -50,7 +51,7 @@ struct Title: Codable, Hashable, Identifiable {
             originalLanguage: "en",
             originalTitle: "Terrifier 2",
             name: "Terrifier 2",
-            title: "Terrifier 2",
+            title: "Terrifier 2 Terrifier 2 Terrifier 2 Terrifier 2 Terrifier 2 Terrifier 2 ",
             popularity: 5086.332,
             posterPath: "/yw8NQyvbeNXoZO6v4SEXrgQ27Ll.jpg",
             overview: "After being resurrected by a sinister entity, Art the Clown returns to Miles County where he must hunt",
@@ -84,13 +85,19 @@ extension Title {
     }
     
     func getTitleName() -> String {
-        guard let safeTitleName = self.title else { return "Unknown Title"}
-        return safeTitleName
+        self.title ?? self.name ?? "Unknown Title"
     }
     
     func getVoteAverage() -> String {
         guard let safeVoteAverage = self.voteAverage else { return "0.0"}
         let newVoteAverage = String(format: "%.1f", safeVoteAverage )
         return newVoteAverage
+    }
+}
+
+
+struct Title_Previews: PreviewProvider {
+    static var previews: some View {
+        CardCellView(viewModel: CardCellViewModel(title: Title.example1(), genreList: GenreResponse.example1()))
     }
 }

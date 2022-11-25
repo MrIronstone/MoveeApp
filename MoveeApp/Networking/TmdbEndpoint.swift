@@ -13,6 +13,10 @@ enum TmdbEndpoint: Endpoint {
     case getMovieGenreList
     case getImage(path: String, imageRes: ImageRes)
     
+    case getPopularTvSeries
+    case getTopRatedTvSeries
+    case getTvSeriesGenreList
+    
     var scheme: String {
         switch self {
         default:
@@ -44,6 +48,12 @@ enum TmdbEndpoint: Endpoint {
             case .highRes:
                 return "/t/p/original\(path)"
             }
+        case .getPopularTvSeries:
+            return "/3/tv/popular"
+        case .getTopRatedTvSeries:
+            return "/3/tv/top_rated"
+        case .getTvSeriesGenreList:
+            return "/3/genre/tv/list"
         }
     }
     

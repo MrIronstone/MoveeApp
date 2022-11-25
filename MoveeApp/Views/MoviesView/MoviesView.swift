@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ListView: View {
-    @ObservedObject private var viewModel = ListViewModel()
+struct MoviesView: View {
+    @ObservedObject private var viewModel = MoviesViewModel()
     
     var body: some View {
         NavigationView {
@@ -57,6 +57,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        MoviesView()
     }
 }

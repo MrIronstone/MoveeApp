@@ -18,7 +18,7 @@ struct CardCellView: View {
         VStack(alignment: .leading) {
             CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
                 .frame(height: 400)
-                .offset(CGSize(width: 20, height: -10))
+                .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "star.fill")
@@ -39,9 +39,9 @@ struct CardCellView: View {
                 }
                 .foregroundColor(.black)
             }
-            .offset(CGSize(width: -30, height: 0))
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
         }
-        .frame(width: 360, height: 530)
+        .frame(width: 320, height: 530, alignment: .leading)
     }
 }
 
