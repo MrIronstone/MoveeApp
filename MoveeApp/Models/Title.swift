@@ -51,7 +51,7 @@ struct Title: Codable, Hashable, Identifiable {
             originalLanguage: "en",
             originalTitle: "Terrifier 2",
             name: "Terrifier 2",
-            title: "Terrifier 2 Terrifier 2 Terrifier 2 Terrifier 2 Terrifier 2 Terrifier 2 ",
+            title: "Terrifier 2 ",
             popularity: 5086.332,
             posterPath: "/yw8NQyvbeNXoZO6v4SEXrgQ27Ll.jpg",
             overview: "After being resurrected by a sinister entity, Art the Clown returns to Miles County where he must hunt",

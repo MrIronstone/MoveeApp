@@ -25,6 +25,7 @@
 		84AB63E22905B08300BF8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84AB63E12905B08300BF8FE9 /* Assets.xcassets */; };
 		84AB63E52905B08300BF8FE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84AB63E42905B08300BF8FE9 /* Preview Assets.xcassets */; };
 		84BEF1372911325E00A208F5 /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BEF1362911325E00A208F5 /* ListCellViewModel.swift */; };
+		84FC941B295AD953003962DB /* TvCardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC941A295AD952003962DB /* TvCardCellView.swift */; };
 		84FF4DEA29091F8F00A0A791 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF4DE929091F8F00A0A791 /* NetworkEngine.swift */; };
 		84FF4DEC29091FC600A0A791 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF4DEB29091FC600A0A791 /* Endpoint.swift */; };
 		84FF4DEE290920E500A0A791 /* TmdbEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF4DED290920E500A0A791 /* TmdbEndpoint.swift */; };
@@ -77,6 +78,7 @@
 		84AB63EF2905B08400BF8FE9 /* MoveeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AB63F92905B08400BF8FE9 /* MoveeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BEF1362911325E00A208F5 /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
+		84FC941A295AD952003962DB /* TvCardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvCardCellView.swift; sourceTree = "<group>"; };
 		84FF4DE929091F8F00A0A791 /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		84FF4DEB29091FC600A0A791 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		84FF4DED290920E500A0A791 /* TmdbEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbEndpoint.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 				847A380D290DFF1600BAA616 /* TitleDetails.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		841A0443295A674F00C6B422 /* TvCardCell */ = {
+			isa = PBXGroup;
+			children = (
+				84FC941A295AD952003962DB /* TvCardCellView.swift */,
+			);
+			path = TvCardCell;
 			sourceTree = "<group>";
 		};
 		843D29ED292A74CE00FBDE89 /* DetailView */ = {
@@ -226,6 +236,7 @@
 		84BBA5CB290AA49E006ACA2F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				841A0443295A674F00C6B422 /* TvCardCell */,
 				848EAD22290C4A04007C8A1E /* CustomImageView.swift */,
 				84AB63DF2905B07E00BF8FE9 /* ContentView.swift */,
 				843D29F0292A74F500FBDE89 /* MoviesView */,
@@ -530,6 +541,7 @@
 				84FF4DEE290920E500A0A791 /* TmdbEndpoint.swift in Sources */,
 				84AB63DE2905B07E00BF8FE9 /* MoveeAppApp.swift in Sources */,
 				843B1080290B27B100AE6EEF /* ListCellView.swift in Sources */,
+				84FC941B295AD953003962DB /* TvCardCellView.swift in Sources */,
 				848EAD23290C4A04007C8A1E /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

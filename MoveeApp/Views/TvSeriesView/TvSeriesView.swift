@@ -10,12 +10,17 @@ import SwiftUI
 struct TvSeriesView: View {
     @ObservedObject private var viewModel = TvSeriesViewModel()
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
                     VStack {
-                        Text("Movies")
+                        Text("TV Series")
                             .font(.system(size: 41).bold())
                             .padding(EdgeInsets(top: 150, leading: -150, bottom: 0, trailing: 0))
                             .foregroundColor(Color.white)
@@ -37,18 +42,20 @@ struct TvSeriesView: View {
                     }
                     Divider()
                     LazyVStack(alignment: .leading) {
-                        Text("Popular")
+                        Text("Top Rated")
                             .font(.system(size: 22).bold())
-                        
-                        ForEach(viewModel.topRatedTvSeries) { row in
-                            NavigationLink {
-                                DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres))
-                            } label: {
-                                ListCellView(viewModel: ListCellViewModel(title: row, genreList: viewModel.tvGenres))
+                        LazyVGrid(columns: columns) {
+                            ForEach(viewModel.topRatedTvSeries) { row in
+                                NavigationLink {
+                                    DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres))
+                                } label: {
+                                    TvCardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.tvGenres))
+                                }
                             }
                         }
-                    } .foregroundColor(Color.black)
-                        .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
+                    }
+                    .foregroundColor(Color.black)
+                    .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
         }
