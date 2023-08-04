@@ -34,7 +34,7 @@ struct ListCellView: View {
                         Text(viewModel.title.getNewDateStyle())
                             .font(.system(size: 14))
                     }
-                    Divider().fixedSize()
+                    Divider()
                     HStack {
                         Image(systemName: "star.fill")
                         Text(viewModel.title.getVoteAverage())
@@ -46,14 +46,16 @@ struct ListCellView: View {
                     .background(.blue)
                     .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
                 }
-            } .frame(maxWidth: .infinity)
-            Spacer()
-        }   .background(.regularMaterial)
-            .cornerRadius(10)
-            .overlay {
-            RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray.opacity(0.4), lineWidth: 1.5)
+                .fixedSize()
             }
+            Spacer()
+        }
+        .background(.regularMaterial)
+        .cornerRadius(10)
+        .overlay {
+        RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray.opacity(0.4), lineWidth: 1.5)
+        }
     }
 }
 

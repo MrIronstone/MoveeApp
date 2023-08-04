@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ListView()
+        NavigationStack {
+            TabView {
+                MoviesView()
+                    .tabItem {
+                        Image(systemName: "film")
+                    }
+                TvSeriesView()
+                    .tabItem {
+                        Image(systemName: "tv")
+                    }
+            }
+        }
     }
 }
 

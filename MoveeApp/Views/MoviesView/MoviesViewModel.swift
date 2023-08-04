@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListViewModel: ObservableObject {
+class MoviesViewModel: ObservableObject {
     @Published var populerMovies: [Title] = []
     @Published var nowPlayingMovies: [Title] = []
     @Published var movieGenres: GenreResponse = GenreResponse(genres: [])

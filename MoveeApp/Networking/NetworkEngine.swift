@@ -8,14 +8,14 @@
 import Foundation
 
 
-class NetworkEngine {
+final class NetworkEngine {
     // 1
     /// Executes the web call and will decode the JSON response into the Codable object provided
     /// - Parameters:
     ///   - endpoint: the endpoint to make HTTP request against
     ///   - completion: the JSON response converted to provided Codable object, if successful, or failure otherwise
     
-    class func request<T: Codable>(endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
+    class func request<T: Decodable>(endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
         // 2
         var components = URLComponents()
         components.scheme = endpoint.scheme
@@ -48,7 +48,9 @@ class NetworkEngine {
             
             // run in main thread
             DispatchQueue.main.async {
-                if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                if let responseObject = try? decoder.decode(T.self, from: data) {
                     // 7
                     completion(.success(responseObject))
                 } else {
