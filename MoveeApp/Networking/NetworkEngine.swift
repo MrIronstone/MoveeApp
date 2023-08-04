@@ -48,7 +48,9 @@ final class NetworkEngine {
             
             // run in main thread
             DispatchQueue.main.async {
-                if let responseObject = try? JSONDecoder().decode(T.self, from: data) {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                if let responseObject = try? decoder.decode(T.self, from: data) {
                     // 7
                     completion(.success(responseObject))
                 } else {

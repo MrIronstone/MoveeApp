@@ -16,29 +16,35 @@ struct TvSeriesView: View {
     ]
     
     var body: some View {
-        NavigationView {
+        GeometryReader { geometryReader in
             ScrollView {
                 VStack {
                     VStack {
+                        Rectangle()
+                            .fill(.blue)
+                            .frame(
+                                width: geometryReader.size.width,
+                                height: geometryReader.size.height,
+                                alignment: .top
+                            )
+                            .background(Color.blue)
+                            .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
                         Text("TV Series")
                             .font(.system(size: 41).bold())
-                            .padding(EdgeInsets(top: 150, leading: -150, bottom: 0, trailing: 0))
+                            .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
                             .foregroundColor(Color.white)
-                            .frame(width: 400, height: 300, alignment: .top)
-                            .background(Color.blue)
-                            .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 10) {
                                 ForEach(viewModel.populerTvSeries) { row in
                                     NavigationLink {
-                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres))
+                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres, titleType: .tvSeries), titleType: .tvSeries)
                                     } label: {
                                         CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.tvGenres))
                                     }
                                 }
                             }
-                        } .padding(EdgeInsets(top: -70, leading: 0, bottom: 0, trailing: 0))
+                        } .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
                     }
                     Divider()
                     LazyVStack(alignment: .leading) {
@@ -47,9 +53,10 @@ struct TvSeriesView: View {
                         LazyVGrid(columns: columns) {
                             ForEach(viewModel.topRatedTvSeries) { row in
                                 NavigationLink {
-                                    DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres))
+                                    DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres, titleType: .tvSeries), titleType: .tvSeries)
                                 } label: {
-                                    TvCardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.tvGenres))
+                                    TvSeriesCell(viewModel: TvSeriesCellViewModel(title: row, genreList: viewModel.tvGenres))
+                                        .frame(height: geometryReader.size.height / 2.25)
                                 }
                             }
                         }
@@ -58,6 +65,7 @@ struct TvSeriesView: View {
                     .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
+            
         }
     }
 }

@@ -36,7 +36,7 @@ struct GenreResponse: Codable {
     }
 }
 
-struct Genre: Codable {
+struct Genre: Codable, Hashable, Identifiable {
     let id: Int
     let name: String
     

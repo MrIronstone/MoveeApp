@@ -17,6 +17,11 @@ enum TmdbEndpoint: Endpoint {
     case getTopRatedTvSeries
     case getTvSeriesGenreList
     
+    case getTvSeriesDetails(id: Int)
+    case getMovieDetails(id: Int)
+    
+    case getMovieCredits(id: Int)
+    
     var scheme: String {
         switch self {
         default:
@@ -54,6 +59,12 @@ enum TmdbEndpoint: Endpoint {
             return "/3/tv/top_rated"
         case .getTvSeriesGenreList:
             return "/3/genre/tv/list"
+        case let .getTvSeriesDetails(id):
+            return "/3/tv/\(id)"
+        case let .getMovieDetails(id):
+            return "/3/movie/\(id)"
+        case let .getMovieCredits(id):
+            return "/3/movie/\(id)/credits"
         }
     }
     

@@ -13,22 +13,38 @@ enum ImageRes {
     case highRes
 }
 
+enum ImageScale {
+    case scaleToFit
+    case scaleToFill
+}
+
 struct CustomImageView: View {
+    let imageScale: ImageScale
     let imageRes: ImageRes
     let path: String?    
     
-    init(path: String?, imageRes: ImageRes = .lowRes) {
+    init(path: String?, imageRes: ImageRes = .lowRes, imageScale: ImageScale = .scaleToFit) {
         self.imageRes = imageRes
+        self.imageScale = imageScale
         self.path = path
     }
     
     var body: some View {
         if let safePath = path {
             if let safeUrl = URL(string: TmdbEndpoint.getImage(path: safePath, imageRes: imageRes).returnUrlAsString()) {
-                KFImage(safeUrl)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(10)
+                if imageScale == .scaleToFit {
+                    KFImage(safeUrl)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10)
+
+                } else {
+                    KFImage(safeUrl)
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(10)
+                }
+                
             }
         }
         

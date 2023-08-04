@@ -11,29 +11,35 @@ struct MoviesView: View {
     @ObservedObject private var viewModel = MoviesViewModel()
     
     var body: some View {
-        NavigationView {
+        GeometryReader { geometryReader in
             ScrollView {
                 VStack {
                     VStack {
+                        Rectangle()
+                            .fill(.blue)
+                            .frame(
+                                width: geometryReader.size.width,
+                                height: geometryReader.size.height,
+                                alignment: .top
+                            )
+                            .background(Color.blue)
+                            .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
                         Text("Movies")
                             .font(.system(size: 41).bold())
-                            .padding(EdgeInsets(top: 150, leading: -150, bottom: 0, trailing: 0))
+                            .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
                             .foregroundColor(Color.white)
-                            .frame(width: 400, height: 300, alignment: .top)
-                            .background(Color.blue)
-                            .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 10) {
                                 ForEach(viewModel.nowPlayingMovies) { row in
                                     NavigationLink {
-                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
+                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres, titleType: .movie), titleType: .movie)
                                     } label: {
                                         CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.movieGenres))
                                     }
                                 }
                             }
-                        } .padding(EdgeInsets(top: -70, leading: 0, bottom: 0, trailing: 0))
+                        } .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
                     }
                     Divider()
                     LazyVStack(alignment: .leading) {
@@ -42,7 +48,7 @@ struct MoviesView: View {
                         
                         ForEach(viewModel.populerMovies) { row in
                             NavigationLink {
-                                DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres))
+                                DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres, titleType: .movie), titleType: .movie)
                             } label: {
                                 ListCellView(viewModel: ListCellViewModel(title: row, genreList: viewModel.movieGenres))
                             }
@@ -51,6 +57,7 @@ struct MoviesView: View {
                         .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
+            
         }
     }
 }
@@ -58,5 +65,6 @@ struct MoviesView: View {
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         MoviesView()
+        MoviesView().preferredColorScheme(.dark)
     }
 }
