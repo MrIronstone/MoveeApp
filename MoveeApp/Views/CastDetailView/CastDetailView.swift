@@ -9,9 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct CastDetailView: View {
-    @ObservedObject private var viewModel = CastDetailViewModel()
+    @ObservedObject private var viewModel: CastDetailViewModel
     
-    init(viewModel: CastDetailViewModel = CastDetailViewModel()) {
+    init(viewModel: CastDetailViewModel) {
         self.viewModel = viewModel
     }
     

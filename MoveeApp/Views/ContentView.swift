@@ -14,10 +14,12 @@ struct ContentView: View {
                 MoviesView()
                     .tabItem {
                         Image(systemName: "film")
+                        Text("Movies")
                     }
                 TvSeriesView()
                     .tabItem {
                         Image(systemName: "tv")
+                        Text("TV Series")
                     }
             }
         }
