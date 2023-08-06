@@ -45,7 +45,7 @@ struct MoviesView: View {
                     LazyVStack(alignment: .leading) {
                         Text("Popular")
                             .font(.system(size: 22).bold())
-                        
+                            .foregroundColor(.primary)
                         ForEach(viewModel.populerMovies) { row in
                             NavigationLink {
                                 DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.movieGenres, titleType: .movie), titleType: .movie)
@@ -57,7 +57,6 @@ struct MoviesView: View {
                         .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
-            
         }
     }
 }

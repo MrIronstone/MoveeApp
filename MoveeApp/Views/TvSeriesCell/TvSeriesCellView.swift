@@ -24,6 +24,7 @@ struct TvSeriesCell: View {
                         Text(viewModel.title.getTitleName())
                             .font(.system(size: 28))
                             .fontWeight(.bold)
+                            .foregroundColor(.primary)
                             .lineLimit(1)
                         HStack {
                             Image(systemName: "star.fill")

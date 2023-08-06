@@ -32,7 +32,6 @@ struct TvSeriesView: View {
                         Text("TV Series")
                             .font(.system(size: 41).bold())
                             .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
-                            .foregroundColor(Color.white)
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 10) {
@@ -50,6 +49,7 @@ struct TvSeriesView: View {
                     LazyVStack(alignment: .leading) {
                         Text("Top Rated")
                             .font(.system(size: 22).bold())
+                            .foregroundColor(.primary)
                         LazyVGrid(columns: columns) {
                             ForEach(viewModel.topRatedTvSeries) { row in
                                 NavigationLink {
@@ -65,7 +65,6 @@ struct TvSeriesView: View {
                     .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
-            
         }
     }
 }

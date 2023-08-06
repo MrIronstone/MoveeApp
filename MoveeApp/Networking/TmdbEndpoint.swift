@@ -22,6 +22,8 @@ enum TmdbEndpoint: Endpoint {
     
     case getMovieCredits(id: Int)
     
+    case getCastDetails(id: Int)
+    
     var scheme: String {
         switch self {
         default:
@@ -65,6 +67,8 @@ enum TmdbEndpoint: Endpoint {
             return "/3/movie/\(id)"
         case let .getMovieCredits(id):
             return "/3/movie/\(id)/credits"
+        case let .getCastDetails(id):
+            return "/3/person/\(id)"
         }
     }
     

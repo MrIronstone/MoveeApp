@@ -37,14 +37,12 @@ struct CustomImageView: View {
                         .resizable()
                         .scaledToFit()
                         .cornerRadius(10)
-
                 } else {
                     KFImage(safeUrl)
                         .resizable()
                         .scaledToFill()
                         .cornerRadius(10)
                 }
-                
             }
         }
         

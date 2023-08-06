@@ -37,7 +37,7 @@ struct CardCellView: View {
                         .font(.system(size: 15))
                         .lineLimit(1)
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(.primary)
             }
             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
         }

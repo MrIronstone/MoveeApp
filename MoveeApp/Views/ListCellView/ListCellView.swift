@@ -24,15 +24,18 @@ struct ListCellView: View {
                     .font(.system(size: 24))
                     .fontWeight(.bold)
                     .lineLimit(1)
+                    .foregroundColor(.primary)
                 Text(viewModel.title.getGenreString(with: viewModel.genreList))
                     .font(.system(size: 18))
                     .lineLimit(1)
+                    .foregroundColor(.primary)
                 HStack {
                     HStack {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
                         Text(viewModel.title.getNewDateStyle())
                             .font(.system(size: 14))
+                            .foregroundColor(.primary)
                     }
                     Divider()
                     HStack {
