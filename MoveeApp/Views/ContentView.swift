@@ -9,17 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationStack {
-            TabView {
-                MoviesView()
-                    .tabItem {
-                        Image(systemName: "film")
-                    }
-                TvSeriesView()
-                    .tabItem {
-                        Image(systemName: "tv")
-                    }
-            }
+        TabView {
+            MoviesView()
+                .tabItem {
+                    Image(systemName: "film")
+                    Text("Movies")
+                }
+            TvSeriesView()
+                .tabItem {
+                    Image(systemName: "tv")
+                    Text("TV Series")
+                }
+        }
+        .onAppear {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            // correct the transparency bug for Navigation bars
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
     }
 }

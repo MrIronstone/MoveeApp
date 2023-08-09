@@ -17,13 +17,14 @@ struct TvSeriesCell: View {
     var body: some View {
         GeometryReader(content: { _ in
             VStack(alignment: .leading, spacing: 10) {
-                CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
+                CustomImageView(path: viewModel.title.posterPath ?? "", imageRes: .lowRes)
                     .frame(maxWidth: .infinity)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
                         Text(viewModel.title.getTitleName())
                             .font(.system(size: 28))
                             .fontWeight(.bold)
+                            .foregroundColor(.primary)
                             .lineLimit(1)
                         HStack {
                             Image(systemName: "star.fill")

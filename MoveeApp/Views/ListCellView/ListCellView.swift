@@ -17,22 +17,25 @@ struct ListCellView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
+            CustomImageView(path: viewModel.title.posterPath ?? "", imageRes: .lowRes)
                 .frame(height: 150)
             VStack(alignment: .leading, spacing: 25) {
                 Text(viewModel.title.getTitleName())
                     .font(.system(size: 24))
                     .fontWeight(.bold)
                     .lineLimit(1)
+                    .foregroundColor(.primary)
                 Text(viewModel.title.getGenreString(with: viewModel.genreList))
                     .font(.system(size: 18))
                     .lineLimit(1)
+                    .foregroundColor(.primary)
                 HStack {
                     HStack {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
                         Text(viewModel.title.getNewDateStyle())
                             .font(.system(size: 14))
+                            .foregroundColor(.primary)
                     }
                     Divider()
                     HStack {

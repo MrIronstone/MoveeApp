@@ -7,21 +7,12 @@
 
 struct CreditsResponse: Decodable, Identifiable, Hashable {
     let id: Int
-    let cast: [Person?]?
-    let crew: [Person?]?
+    let cast: [Person]
+    let crew: [Person]
 }
 
-struct Person: Codable, Identifiable, Hashable {
+struct PersonCreditsResponse: Decodable, Identifiable, Hashable {
     let id: Int
-    let creditId: String?
-    let name: String?
-    let originalName: String?
-    let profilePath: String?
-    let knownForDepartment: String?
-    let popularity: Double?
-    let castId: Int?
-    let character: String?
-    let order: Int?
-    let department: String?
-    let job: String?
+    let cast: [Title]
+    let crew: [Title]
 }

@@ -16,7 +16,7 @@ struct CardCellView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
+            CustomImageView(path: viewModel.title.posterPath ?? viewModel.title.backdropPath ?? "", imageRes: .lowRes)
                 .frame(height: 400)
                 .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
             VStack(alignment: .leading) {
@@ -37,7 +37,7 @@ struct CardCellView: View {
                         .font(.system(size: 15))
                         .lineLimit(1)
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(.primary)
             }
             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
         }

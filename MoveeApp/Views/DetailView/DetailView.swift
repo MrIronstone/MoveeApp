@@ -14,19 +14,18 @@ enum TitleType {
 }
 
 struct DetailView: View {
-    let titleType: TitleType
     @ObservedObject private var viewModel: DetailViewModel
     
-    init(viewModel: DetailViewModel, titleType: TitleType) {
+    init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
-        self.titleType = titleType
     }
     
     var body: some View {
         GeometryReader(content: { geoReader in
             ScrollView {
-                CustomImageView(path: viewModel.title.backdropPath, imageRes: .lowRes, imageScale: .scaleToFill)
+                CustomImageView(path: viewModel.title.backdropPath ?? viewModel.title.posterPath ?? "", imageRes: .lowRes, imageScale: .scaleToFill)
                     .frame(width: geoReader.size.width, height: ((geoReader.size.width) / 36) * 41)
+                    .clipped()
                 VStack(alignment: .leading, spacing: 16) {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -64,7 +63,7 @@ struct DetailView: View {
                     Text(viewModel.title.overview ?? "")
                         .fixedSize(horizontal: false, vertical: true)
                     
-                    if titleType == .tvSeries {
+                    if viewModel.titleType == .tvSeries {
                         HStack {
                             Text("\(viewModel.title.lastEpisodeToAir?.seasonNumber ?? 0) seasons")
                                 .font(.system(size: 16))
@@ -95,6 +94,26 @@ struct DetailView: View {
                             }
                         }
                     }
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 4) {
+                            ForEach(viewModel.cast) { cast in
+                                NavigationLink {
+                                    CastDetailView(viewModel: CastDetailViewModel(person: cast))
+                                } label: {
+                                    VStack(spacing: 10) {
+                                        KFImage(URL(string: TmdbEndpoint.getImage(path: cast.profilePath ?? "", imageRes: .lowRes).returnUrlAsString()))
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: geoReader.size.width / 5, height: geoReader.size.width / 5)
+                                            .cornerRadius(geoReader.size.width / 5)
+                                            .padding(.horizontal, 15)
+                                        Text(cast.name ?? "not found")
+                                    }
+                                }
+                                .foregroundColor(.primary)
+                            }
+                        }
+                    }
                 } .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
             }
         })
@@ -107,6 +126,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(viewModel: DetailViewModel(title: Title.example1(), genreList: GenreResponse.example1(), titleType: .tvSeries), titleType: .tvSeries)
+        DetailView(viewModel: DetailViewModel(title: Title.example2(), genreList: GenreResponse.example1()))
     }
 }

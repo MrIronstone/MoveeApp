@@ -11,14 +11,15 @@ class DetailViewModel: ObservableObject {
     @Published var title: Title
     @Published var director: String?
     @Published var writers: String?
+    @Published var cast: [Person] = []
     
     let genreList: GenreResponse
     let titleType: TitleType
     
-    init(title: Title, genreList: GenreResponse, titleType: TitleType) {
+    init(title: Title, genreList: GenreResponse) {
         self.title = title
         self.genreList = genreList
-        self.titleType = titleType
+        self.titleType = title.firstAirDate == nil ? .movie : .tvSeries
     }
     
     public func fetchTitleDetails() {
@@ -37,27 +38,22 @@ class DetailViewModel: ObservableObject {
     }
     
     public func fetchDirectorAndWriter() {
-        if titleType != .movie {
-            return
-        }
-        
-        let endpoint = TmdbEndpoint.getMovieCredits(id: title.id)
-        
+        let endpoint = titleType == .tvSeries ?
+        TmdbEndpoint.getTVSeriesCredits(id: title.id) :
+        TmdbEndpoint.getMovieCredits(id: title.id)
+
         NetworkEngine.request(endpoint: endpoint) { [weak self] (result: Result<CreditsResponse, Error>) in
             switch result {
             case .success(let success):
-                guard let safeCrew = success.crew else { return }
-                guard let safeDirector = safeCrew.first(where: { $0?.job == "Director" }) else { return }
-                self?.director = safeDirector?.name
+                self?.cast = success.cast
+                
+                guard let safeDirector = success.crew.first(where: { $0.job == "Director" }) else { return }
+                self?.director = safeDirector.name
                 
                 var writersStringArray: [String] = []
-                for person in safeCrew {
-                    if let person = person {
-                        if person.job == "Writer" {
-                            if let safeName = person.name {
-                                writersStringArray.append(safeName)
-                            }
-                        }
+                for person in success.crew where person.job == "Writer" {
+                    if let safeName = person.name {
+                        writersStringArray.append(safeName)
                     }
                 }
                 self?.writers = writersStringArray.joined(separator: ", ")
