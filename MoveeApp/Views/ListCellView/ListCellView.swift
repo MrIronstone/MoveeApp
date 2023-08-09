@@ -17,7 +17,7 @@ struct ListCellView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            CustomImageView(path: viewModel.title.posterPath, imageRes: .lowRes)
+            CustomImageView(path: viewModel.title.posterPath ?? "", imageRes: .lowRes)
                 .frame(height: 150)
             VStack(alignment: .leading, spacing: 25) {
                 Text(viewModel.title.getTitleName())

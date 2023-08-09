@@ -171,7 +171,7 @@ extension Title {
     }
     
     func getNewDateStyle() -> String {
-        if let safeDate = self.releaseDate {
+        if let safeDate = self.releaseDate, !safeDate.isEmpty {
             let year = safeDate.components(separatedBy: "-")[0]
             let month = safeDate.components(separatedBy: "-")[1]
             let day = safeDate.components(separatedBy: "-")[2]

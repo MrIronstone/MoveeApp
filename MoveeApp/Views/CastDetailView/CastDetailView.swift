@@ -40,6 +40,17 @@ struct CastDetailView: View {
                             Text(viewModel.person?.placeOfBirth ?? "not found")
                                 .font(.system(size: 17))
                         }
+                        LazyVStack(spacing: 10) {
+                            ForEach(viewModel.titles) { title in
+                                VStack {
+                                    NavigationLink {
+                                        DetailView(viewModel: DetailViewModel(title: title, genreList: .example1()))
+                                    } label: {
+                                        CardCellView(viewModel: CardCellViewModel(title: title, genreList: .example1()))
+                                    }
+                                }
+                            }
+                        }
                     }
                     .padding(.horizontal, 32)
                 }

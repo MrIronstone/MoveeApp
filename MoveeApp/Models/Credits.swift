@@ -10,3 +10,9 @@ struct CreditsResponse: Decodable, Identifiable, Hashable {
     let cast: [Person]
     let crew: [Person]
 }
+
+struct PersonCreditsResponse: Decodable, Identifiable, Hashable {
+    let id: Int
+    let cast: [Title]
+    let crew: [Title]
+}

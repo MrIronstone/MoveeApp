@@ -20,9 +20,15 @@ enum TmdbEndpoint: Endpoint {
     case getTvSeriesDetails(id: Int)
     case getMovieDetails(id: Int)
     
+    case getTVSeriesCredits(id: Int)
     case getMovieCredits(id: Int)
     
     case getCastDetails(id: Int)
+    
+    case getCastMovieCredits(id: Int)
+    case getCastTVSeriesCredits(id: Int)
+    
+    case getCastCombinedCredits(id: Int)
     
     var scheme: String {
         switch self {
@@ -65,10 +71,18 @@ enum TmdbEndpoint: Endpoint {
             return "/3/tv/\(id)"
         case let .getMovieDetails(id):
             return "/3/movie/\(id)"
+        case let.getTVSeriesCredits(id):
+            return "/3/tv/\(id)/credits"
         case let .getMovieCredits(id):
             return "/3/movie/\(id)/credits"
         case let .getCastDetails(id):
             return "/3/person/\(id)"
+        case let .getCastMovieCredits(id):
+            return "/3/person/\(id)/movie_credits"
+        case let .getCastTVSeriesCredits(id):
+            return "/3/person/\(id)/tv_credits"
+        case let .getCastCombinedCredits(id):
+            return "/3/person/\(id)/combined_credits"
         }
     }
     

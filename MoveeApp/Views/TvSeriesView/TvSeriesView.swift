@@ -17,52 +17,54 @@ struct TvSeriesView: View {
     
     var body: some View {
         GeometryReader { geometryReader in
-            ScrollView {
-                VStack {
+            NavigationStack {
+                ScrollView {
                     VStack {
-                        Rectangle()
-                            .fill(.blue)
-                            .frame(
-                                width: geometryReader.size.width,
-                                height: geometryReader.size.height,
-                                alignment: .top
-                            )
-                            .background(Color.blue)
-                            .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
-                        Text("TV Series")
-                            .font(.system(size: 41).bold())
-                            .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
-                        
-                        ScrollView(.horizontal) {
-                            LazyHStack(spacing: 10) {
-                                ForEach(viewModel.populerTvSeries) { row in
+                        VStack {
+                            Rectangle()
+                                .fill(.blue)
+                                .frame(
+                                    width: geometryReader.size.width,
+                                    height: geometryReader.size.height,
+                                    alignment: .top
+                                )
+                                .background(Color.blue)
+                                .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
+                            Text("TV Series")
+                                .font(.system(size: 41).bold())
+                                .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
+                            
+                            ScrollView(.horizontal) {
+                                LazyHStack(spacing: 10) {
+                                    ForEach(viewModel.populerTvSeries) { row in
+                                        NavigationLink {
+                                            DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres))
+                                        } label: {
+                                            CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.tvGenres))
+                                        }
+                                    }
+                                }
+                            } .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
+                        }
+                        Divider()
+                        LazyVStack(alignment: .leading) {
+                            Text("Top Rated")
+                                .font(.system(size: 22).bold())
+                                .foregroundColor(.primary)
+                            LazyVGrid(columns: columns) {
+                                ForEach(viewModel.topRatedTvSeries) { row in
                                     NavigationLink {
-                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres, titleType: .tvSeries), titleType: .tvSeries)
+                                        DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres))
                                     } label: {
-                                        CardCellView(viewModel: CardCellViewModel(title: row, genreList: viewModel.tvGenres))
+                                        TvSeriesCell(viewModel: TvSeriesCellViewModel(title: row, genreList: viewModel.tvGenres))
+                                            .frame(height: geometryReader.size.height / 2.25)
                                     }
                                 }
                             }
-                        } .padding(EdgeInsets(top: -100, leading: 0, bottom: 0, trailing: 0))
-                    }
-                    Divider()
-                    LazyVStack(alignment: .leading) {
-                        Text("Top Rated")
-                            .font(.system(size: 22).bold())
-                            .foregroundColor(.primary)
-                        LazyVGrid(columns: columns) {
-                            ForEach(viewModel.topRatedTvSeries) { row in
-                                NavigationLink {
-                                    DetailView(viewModel: DetailViewModel(title: row, genreList: viewModel.tvGenres, titleType: .tvSeries), titleType: .tvSeries)
-                                } label: {
-                                    TvSeriesCell(viewModel: TvSeriesCellViewModel(title: row, genreList: viewModel.tvGenres))
-                                        .frame(height: geometryReader.size.height / 2.25)
-                                }
-                            }
                         }
+                        .foregroundColor(Color.black)
+                        .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                     }
-                    .foregroundColor(Color.black)
-                    .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
                 }
             }
         }

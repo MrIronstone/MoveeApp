@@ -16,10 +16,10 @@ class DetailViewModel: ObservableObject {
     let genreList: GenreResponse
     let titleType: TitleType
     
-    init(title: Title, genreList: GenreResponse, titleType: TitleType) {
+    init(title: Title, genreList: GenreResponse) {
         self.title = title
         self.genreList = genreList
-        self.titleType = titleType
+        self.titleType = title.firstAirDate == nil ? .movie : .tvSeries
     }
     
     public func fetchTitleDetails() {
@@ -38,8 +38,10 @@ class DetailViewModel: ObservableObject {
     }
     
     public func fetchDirectorAndWriter() {
-        let endpoint = TmdbEndpoint.getMovieCredits(id: title.id)
-        
+        let endpoint = titleType == .tvSeries ?
+        TmdbEndpoint.getTVSeriesCredits(id: title.id) :
+        TmdbEndpoint.getMovieCredits(id: title.id)
+
         NetworkEngine.request(endpoint: endpoint) { [weak self] (result: Result<CreditsResponse, Error>) in
             switch result {
             case .success(let success):
