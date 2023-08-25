@@ -30,6 +30,8 @@ enum TmdbEndpoint: Endpoint {
     
     case getCastCombinedCredits(id: Int)
     
+    case getSearchResult(query: String, page: Int)
+    
     var scheme: String {
         switch self {
         default:
@@ -83,6 +85,8 @@ enum TmdbEndpoint: Endpoint {
             return "/3/person/\(id)/tv_credits"
         case let .getCastCombinedCredits(id):
             return "/3/person/\(id)/combined_credits"
+        case .getSearchResult:
+            return "/3/search/multi"
         }
     }
     
@@ -90,6 +94,12 @@ enum TmdbEndpoint: Endpoint {
         let apiKey = "d6715ac27b93b285c4c33a3ce1e485b9"
         
         switch self {
+        case let .getSearchResult(query, page):
+            return [
+                URLQueryItem(name: "api_key", value: apiKey),
+                URLQueryItem(name: "query", value: query),
+                URLQueryItem(name: "page", value: String(page))
+            ]
         default:
             return [
                 URLQueryItem(name: "api_key", value: apiKey)

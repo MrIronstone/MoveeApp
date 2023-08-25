@@ -32,6 +32,7 @@ struct TvSeriesView: View {
                                 .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
                             Text("TV Series")
                                 .font(.system(size: 41).bold())
+                                .foregroundColor(Color.white)
                                 .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
                             
                             ScrollView(.horizontal) {

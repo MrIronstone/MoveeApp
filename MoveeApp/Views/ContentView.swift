@@ -20,6 +20,11 @@ struct ContentView: View {
                     Image(systemName: "tv")
                     Text("TV Series")
                 }
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
         }
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()
