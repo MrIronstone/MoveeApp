@@ -88,7 +88,7 @@ struct Title: Codable, Hashable, Identifiable {
                     profilePath: "/xvNN5huL0X8yJ7h3IZfGG4O2zBD.jpg",
                     biography: "bla bla bla bla bla",
                     placeOfBirth: "bla bla bla bla",
-                    birtday: nil,
+                    birthday: nil,
                     deathday: nil,
                     knownForDepartment: nil,
                     popularity: nil,
@@ -107,7 +107,7 @@ struct Title: Codable, Hashable, Identifiable {
                     profilePath: "/2RMejaT793U9KRk2IEbFfteQntE.jpg",
                     biography: "nil nil nil n ilnil nil",
                     placeOfBirth: "nil nil nil nil / nil nil",
-                    birtday: nil,
+                    birthday: nil,
                     deathday: nil,
                     knownForDepartment: nil,
                     popularity: nil,
@@ -178,7 +178,7 @@ extension Title {
             let newDate = "\(day).\(month).\(year)"
             return newDate
         }
-        if let safeDate = self.firstAirDate {
+        if let safeDate = self.firstAirDate, !safeDate.isEmpty {
             let year = safeDate.components(separatedBy: "-")[0]
             let month = safeDate.components(separatedBy: "-")[1]
             let day = safeDate.components(separatedBy: "-")[2]

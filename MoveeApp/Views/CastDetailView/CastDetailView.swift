@@ -53,6 +53,7 @@ struct CastDetailView: View {
                         }
                     }
                     .padding(.horizontal, 32)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
                 .onAppear {
                     viewModel.fetchCastDetails(castId: viewModel.person?.id ?? 0)
