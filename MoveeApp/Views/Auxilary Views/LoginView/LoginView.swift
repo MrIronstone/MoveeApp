@@ -49,8 +49,8 @@ struct LoginView: View {
                         .padding(.top, 20)
                     }
 
-//                    Text("Error message: \(viewModel.errorMessage)")
-//                        .padding(.top, 20)
+                    Text("\(viewModel.errorMessage)")
+                        .padding(.top, 20)
                 }
                 
                 Spacer()

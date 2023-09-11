@@ -54,20 +54,20 @@ class LoginViewModel: ObservableObject {
                                         completion(.success(successfulCreateSessionResponse))
                                     case false:
                                         guard let statusMessage = successfulResult.statusMessage else { return }
-                                        print("Error on creating session: \(statusMessage)")
+                                        print("\(statusMessage)")
                                         let error = NSError(domain: statusMessage, code: -1002)
                                         completion(.failure(error))
                                     }
                                 case .failure(let error):
-                                    print("Error on creating session: \(error)")
+                                    print("\(error)")
                                     let error = NSError(domain: error.localizedDescription, code: -1002)
                                     completion(.failure(error))
                                 }
                             }
                         case false:
                             guard let statusMessage = successfulResult.statusMessage else { return }
-                            self.errorMessage = "Error on login: \(statusMessage)"
-                            print("Error on login: \(statusMessage)")
+                            self.errorMessage = "\(statusMessage)"
+                            print(self.errorMessage)
                             let error = NSError(domain: statusMessage, code: -1001)
                             completion(.failure(error))
                         }
