@@ -15,7 +15,7 @@ final class NetworkEngine {
     ///   - endpoint: the endpoint to make HTTP request against
     ///   - completion: the JSON response converted to provided Codable object, if successful, or failure otherwise
     
-    class func request<T: Decodable>(endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
+    class func request<T: Decodable>(endpoint: Endpoint, requestParameters: [String: Any]? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         // 2
         var components = URLComponents()
         components.scheme = endpoint.scheme
@@ -32,6 +32,17 @@ final class NetworkEngine {
         // 4
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endpoint.method
+        
+        if requestParameters != nil, endpoint.method != "GET" {
+            do {
+                guard let requestParameters else { return }
+                let requestData = try JSONSerialization.data(withJSONObject: requestParameters)
+                urlRequest.httpBody = requestData as Data
+                urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+            } catch {
+                print("Error occured while serilize the json: \(error.localizedDescription)")
+            }
+        }
         
         // 5
         let session = URLSession(configuration: .default)
@@ -50,6 +61,15 @@ final class NetworkEngine {
             DispatchQueue.main.async {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                do {
+                    let jsonData = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                    print(jsonData)
+                } catch {
+                    let error = NSError(domain: "", code: -1002, userInfo: [NSLocalizedDescriptionKey: "Failed to decode json"])
+                    completion(.failure(error))
+                }
+                
                 if let responseObject = try? decoder.decode(T.self, from: data) {
                     // 7
                     completion(.success(responseObject))

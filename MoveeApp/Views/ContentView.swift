@@ -8,22 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selection = 3
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             MoviesView()
+                .tag(0)
                 .tabItem {
                     Image(systemName: "film")
                     Text("Movies")
                 }
             TvSeriesView()
+                .tag(1)
                 .tabItem {
                     Image(systemName: "tv")
                     Text("TV Series")
                 }
             SearchView()
+                .tag(2)
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
+                }
+            ProfileView()
+                .tag(3)
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
                 }
         }
         .onAppear {

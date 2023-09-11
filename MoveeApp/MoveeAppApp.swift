@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct MoveeAppApp: App {
+    @StateObject var authentication = Authentication()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if authentication.response.sessionId != nil {
+                ContentView()
+                    .environmentObject(authentication)
+            } else {
+                LoginView()
+                    .environmentObject(authentication)
+            }
         }
     }
 }
