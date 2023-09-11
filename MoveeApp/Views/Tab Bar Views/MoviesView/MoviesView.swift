@@ -15,7 +15,37 @@ struct MoviesView: View {
             NavigationStack {
                 ScrollView {
                     VStack {
-                        VStack {
+                        VStack {                  
+                            ZStack {
+                                Rectangle()
+                                    .fill(.blue)
+                                    .frame(
+                                        width: geometryReader.size.width,
+                                        height: geometryReader.size.height,
+                                        alignment: .top
+                                    )
+                                    .background(Color.blue)
+                                    .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
+                                
+                                    
+                                HStack {
+                                    Text("Movies")
+                                        .font(.system(size: 41).bold())
+                                    Spacer()
+                                    NavigationLink {
+                                        MapView()
+                                    } label: {
+                                        Image(systemName: "map.circle.fill")
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                            .foregroundColor(.white)
+                                    }
+
+                                }
+                                .foregroundColor(Color.white)
+                                .padding(.horizontal, 32)
+                            }
+                            /*
                             Rectangle()
                                 .fill(.blue)
                                 .frame(
@@ -25,10 +55,22 @@ struct MoviesView: View {
                                 )
                                 .background(Color.blue)
                                 .padding(EdgeInsets(top: -(geometryReader.size.height - 200), leading: 0, bottom: 0, trailing: 0))
-                            Text("Movies")
-                                .font(.system(size: 41).bold())
-                                .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
-                                .foregroundColor(Color.white)
+                            HStack {
+                                Text("Movies")
+                                    .font(.system(size: 41).bold())
+                                    .padding(EdgeInsets(top: -150, leading: -150, bottom: 0, trailing: 0))
+                                    .foregroundColor(Color.white)
+                                Spacer()
+                                    .frame(width: 10)
+                                NavigationLink {
+                                    MapView()
+                                } label: {
+                                    Image(systemName: "power")
+                                }
+
+                            }
+                            */
+                            
                             
                             ScrollView(.horizontal) {
                                 LazyHStack(spacing: 10) {

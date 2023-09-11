@@ -32,6 +32,13 @@ enum TmdbEndpoint: Endpoint {
     
     case getSearchResult(query: String, page: Int)
     
+    case createReqeustToken
+    case validateWithLogin
+    case createNewSession
+    case deleteSession
+    
+    case accountDetail(sessionId: String)
+    
     var scheme: String {
         switch self {
         default:
@@ -87,6 +94,16 @@ enum TmdbEndpoint: Endpoint {
             return "/3/person/\(id)/combined_credits"
         case .getSearchResult:
             return "/3/search/multi"
+        case .createReqeustToken:
+            return "/3/authentication/token/new"
+        case .validateWithLogin:
+            return "/3/authentication/token/validate_with_login"
+        case .createNewSession:
+            return "/3/authentication/session/new"
+        case .deleteSession:
+            return "/3/authentication/session"
+        case .accountDetail:
+            return "/3/account"
         }
     }
     
@@ -100,6 +117,11 @@ enum TmdbEndpoint: Endpoint {
                 URLQueryItem(name: "query", value: query),
                 URLQueryItem(name: "page", value: String(page))
             ]
+        case let .accountDetail(sessionID):
+            return [
+                URLQueryItem(name: "session_id", value: String(sessionID)),
+                URLQueryItem(name: "api_key", value: String(apiKey))
+            ]
         default:
             return [
                 URLQueryItem(name: "api_key", value: apiKey)
@@ -109,6 +131,10 @@ enum TmdbEndpoint: Endpoint {
     
     var method: String {
         switch self {
+        case .validateWithLogin, .createNewSession:
+            return "POST"
+        case .deleteSession:
+            return "DELETE"
         default:
             return "GET"
         }
