@@ -50,7 +50,10 @@ struct LoginView: View {
                     }
 
                     Text("\(viewModel.errorMessage)")
-                        .padding(.top, 20)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                        .foregroundColor(.red)
+
                 }
                 
                 Spacer()
