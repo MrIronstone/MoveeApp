@@ -53,7 +53,7 @@ struct LoginView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
                         .foregroundColor(.red)
-
+                        .frame(height: 30)
                 }
                 
                 Spacer()

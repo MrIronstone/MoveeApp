@@ -22,7 +22,7 @@ struct MapView: View {
                 annotationContent: { landmark in
                     MapAnnotation(coordinate: landmark.coordinate) {
                         VStack {
-                            Image(systemName: "heart.fill")
+                            Image(systemName: "mappin.circle.fill")
                                 .foregroundColor(.red)
                             Text(landmark.name)
                                 .foregroundColor(.red)
@@ -53,7 +53,9 @@ struct MapView: View {
             .padding(.bottom, 100)
             
             LocationButton(.currentLocation) {
-                viewModel.requestLocation()
+                withAnimation {
+                    viewModel.requestLocation()
+                }
             }
             .foregroundColor(.white)
             .cornerRadius(8)
