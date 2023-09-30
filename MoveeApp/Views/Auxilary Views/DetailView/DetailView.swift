@@ -15,7 +15,7 @@ enum TitleType {
 
 struct DetailView: View {
     @ObservedObject private var viewModel: DetailViewModel
-    
+        
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
     }
@@ -23,9 +23,32 @@ struct DetailView: View {
     var body: some View {
         GeometryReader(content: { geoReader in
             ScrollView {
-                CustomImageView(path: viewModel.title.backdropPath ?? viewModel.title.posterPath ?? "", imageRes: .lowRes, imageScale: .scaleToFill)
-                    .frame(width: geoReader.size.width, height: ((geoReader.size.width) / 36) * 41)
-                    .clipped()
+                ZStack(alignment: .topTrailing) {
+                    CustomImageView(path: viewModel.title.backdropPath ?? viewModel.title.posterPath ?? "", imageRes: .lowRes, imageScale: .scaleToFill)
+                        .frame(width: geoReader.size.width, height: ((geoReader.size.width) / 36) * 41)
+                        .clipped()
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: geoReader.size.width / 10, height: geoReader.size.width / 10)
+                        Button {
+                            viewModel.changeTitleFavStatus()
+                        } label: {
+                            if viewModel.isFavorite {
+                                Image(systemName: "heart.fill")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.red)
+                            } else {
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.red)
+                            }
+                        }
+                    }
+                    .padding(24)
+                }
                 VStack(alignment: .leading, spacing: 16) {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -59,6 +82,53 @@ struct DetailView: View {
                             }
                         }
                     }
+                    
+                    HStack(alignment: .top) {
+                        // Rate action button
+                        VStack {
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(.blue)
+                                    .frame(width: geoReader.size.width / 10, height: geoReader.size.width / 10)
+                                Button {
+                                    viewModel.isRated.toggle()
+                                } label: {
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            Text("Rate")
+                            Text("(\(viewModel.title.voteCount ?? 0))")
+                                .fixedSize()
+                        }
+                        
+                        if viewModel.isRated {
+                            let rating = FavoriteList.shared.getTheRatedTitlesRating(selectedId: viewModel.title.id) ?? 0
+                            StarRatingView(
+                                rating: viewModel.isRated ? Int(rating / 2) : 0,
+                                viewModel: viewModel
+                            )
+                        } else {
+                            // Share action button
+                            VStack {
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(.blue)
+                                        .frame(width: geoReader.size.width / 10, height: geoReader.size.width / 10)
+                                    
+                                    if let link = viewModel.getLink() {
+                                        ShareLink(item: link) {
+                                            Image(systemName: "square.and.arrow.up")
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                }
+                                Text("Share")
+                            }
+                            .fixedSize()
+                        }
+                    }
+                    
                     Divider()
                     Text(viewModel.title.overview ?? "")
                         .fixedSize(horizontal: false, vertical: true)
@@ -122,6 +192,8 @@ struct DetailView: View {
         .onAppear {
             viewModel.fetchTitleDetails()
             viewModel.fetchDirectorAndWriter()
+            viewModel.checkIfThisTitleIsInTheFavs()
+            viewModel.checkIfThisTitleHasRating()
         }
     }
 }

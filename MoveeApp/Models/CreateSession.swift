@@ -8,7 +8,7 @@
 struct CreateSession: Decodable {
     let success: Bool
     let failure: Bool?
-    let statusCode: String?
+    let statusCode: Int?
     let statusMessage: String?
     let sessionId: String?
 }
