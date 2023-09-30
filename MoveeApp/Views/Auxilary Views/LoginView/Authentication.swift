@@ -10,6 +10,8 @@ import Foundation
 class Authentication: ObservableObject {
     @Published var response: CreateSession = CreateSession(success: false, failure: nil, statusCode: nil, statusMessage: nil, sessionId: nil)
     
+    @Published var accountId = UserDefaults.standard.integer(forKey: "accountId")
+    
     init() {
         if let sessionId = UserDefaults.standard.string(forKey: "sessionId") {
             response = CreateSession(success: true, failure: nil, statusCode: nil, statusMessage: nil, sessionId: sessionId)
@@ -45,6 +47,7 @@ class Authentication: ObservableObject {
                     // successful result, deleted the session
                     self.response = CreateSession(success: false, failure: nil, statusCode: nil, statusMessage: nil, sessionId: nil)
                     UserDefaults.standard.removeObject(forKey: "sessionId")
+                    UserDefaults.standard.removeObject(forKey: "accountId")
                     completion(.success(true))
                 case false:
                     // successful result, couldn't delete the session

@@ -15,6 +15,7 @@ struct Title: Codable, Hashable, Identifiable {
     let backdropPath: String?
     let id: Int
     let imdbId: String?
+    let homepage: String?
     let revenue: Int?
     let runtime: Int?
     let firstAirDate: String?
@@ -32,12 +33,14 @@ struct Title: Codable, Hashable, Identifiable {
     let releaseDate: String?
     let voteAverage: Double?
     let voteCount: Int?
+    let rating: Int?
     
     static func example1() -> Title {
         let exampleTitle = Title(
             backdropPath: "/y5Z0WesTjvn59jP6yo459eUsbli.jpg",
             id: 663712,
             imdbId: "1",
+            homepage: nil,
             revenue: 1,
             runtime: 122,
             firstAirDate: nil,
@@ -54,7 +57,8 @@ struct Title: Codable, Hashable, Identifiable {
             overview: "After being resurrected by a sinister entity, Art the Clown returns to Miles County where he must hunt",
             releaseDate: "2022-10-06",
             voteAverage: 7.6,
-            voteCount: 159
+            voteCount: 159,
+            rating: nil
         )
         return exampleTitle
     }
@@ -64,6 +68,7 @@ struct Title: Codable, Hashable, Identifiable {
             backdropPath: "/2OMB0ynKlyIenMJWI2Dy9IWT4c.jpg",
             id: 1399,
             imdbId: nil,
+            homepage: nil,
             revenue: nil,
             runtime: nil,
             firstAirDate: "2011-04-17",
@@ -144,7 +149,8 @@ struct Title: Codable, Hashable, Identifiable {
             // swiftlint:enable line_length
             releaseDate: nil,
             voteAverage: 8.439,
-            voteCount: 21523
+            voteCount: 21523,
+            rating: nil
         )
         return exampleTitle
     }

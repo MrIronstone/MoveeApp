@@ -20,11 +20,29 @@ struct ListCellView: View {
             CustomImageView(path: viewModel.title.posterPath ?? "", imageRes: .lowRes)
                 .frame(height: 150)
             VStack(alignment: .leading, spacing: 25) {
-                Text(viewModel.title.getTitleName())
-                    .font(.system(size: 24))
-                    .fontWeight(.bold)
-                    .lineLimit(1)
-                    .foregroundColor(.primary)
+                HStack {
+                    Text(viewModel.title.getTitleName())
+                        .font(.system(size: 24))
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Button {
+                        viewModel.changeTitleFavStatus()
+                    } label: {
+                        if viewModel.isFavorite {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.red)
+                        } else {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
                 Text(viewModel.title.getGenreString(with: viewModel.genreList))
                     .font(.system(size: 18))
                     .lineLimit(1)

@@ -39,6 +39,20 @@ enum TmdbEndpoint: Endpoint {
     
     case accountDetail(sessionId: String)
     
+    case getFavoriteMovies
+    case getFavoriteTVShows
+    
+    case addOrRemoveFromTheFavorite
+    
+    case addRatingToMovie(movieId: Int)
+    case removeRatingFromMovie(movieId: Int)
+    
+    case addRatingToTVShow(seriesId: Int)
+    case removeRatingFromTVShow(seriesId: Int)
+    
+    case getRatedMovies
+    case getRatedTVShows
+        
     var scheme: String {
         switch self {
         default:
@@ -56,6 +70,8 @@ enum TmdbEndpoint: Endpoint {
     }
     
     var path: String {
+        let accountId = UserDefaults.standard.integer(forKey: "accountId")
+
         switch self {
         case .getPopularMovies:
             return "/3/movie/popular"
@@ -104,6 +120,29 @@ enum TmdbEndpoint: Endpoint {
             return "/3/authentication/session"
         case .accountDetail:
             return "/3/account"
+        case .getFavoriteMovies:
+            return "/3/account/\(accountId)/favorite/movies"
+        case .getFavoriteTVShows:
+            return "/3/account/\(accountId)/favorite/tv"
+        case .addOrRemoveFromTheFavorite:
+            if accountId == 0 {
+                fatalError("No account Found")
+            }
+            return "/3/account/\(accountId)/favorite"
+        case .addRatingToTVShow(let seriesId), .removeRatingFromTVShow(let seriesId):
+            return "/3/tv/\(seriesId)/rating"
+        case .addRatingToMovie(movieId: let movieId), .removeRatingFromMovie(movieId: let movieId):
+            return "/3/movie/\(movieId)/rating"
+        case .getRatedMovies:
+            if accountId == 0 {
+                fatalError("No account Found")
+            }
+            return "/3/account/\(accountId)/rated/movies"
+        case .getRatedTVShows:
+            if accountId == 0 {
+                fatalError("No account Found")
+            }
+            return "/3/account/\(accountId)/rated/tv"
         }
     }
     
@@ -117,9 +156,19 @@ enum TmdbEndpoint: Endpoint {
                 URLQueryItem(name: "query", value: query),
                 URLQueryItem(name: "page", value: String(page))
             ]
-        case let .accountDetail(sessionID):
+        case .accountDetail,
+                .getFavoriteMovies,
+                .getFavoriteTVShows,
+                .addOrRemoveFromTheFavorite,
+                .addRatingToMovie,
+                .removeRatingFromMovie,
+                .addRatingToTVShow,
+                .removeRatingFromTVShow,
+                .getRatedMovies,
+                .getRatedTVShows:
+            guard let sessionId = UserDefaults.standard.string(forKey: "sessionId") else { return [] }
             return [
-                URLQueryItem(name: "session_id", value: String(sessionID)),
+                URLQueryItem(name: "session_id", value: String(sessionId)),
                 URLQueryItem(name: "api_key", value: String(apiKey))
             ]
         default:
@@ -131,9 +180,9 @@ enum TmdbEndpoint: Endpoint {
     
     var method: String {
         switch self {
-        case .validateWithLogin, .createNewSession:
+        case .validateWithLogin, .createNewSession, .addOrRemoveFromTheFavorite, .addRatingToMovie, .addRatingToTVShow:
             return "POST"
-        case .deleteSession:
+        case .deleteSession, .removeRatingFromMovie, .removeRatingFromTVShow:
             return "DELETE"
         default:
             return "GET"

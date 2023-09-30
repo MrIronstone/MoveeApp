@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var viewModel = ProfileViewModel()
     @EnvironmentObject var authentication: Authentication
+
+    @ObservedObject var viewModel = ProfileViewModel()
+    
+    @ObservedObject var favoriteRepository = FavoriteList.shared
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TitleEntity.id, ascending: true)], animation: .default) var coreDataTitles: FetchedResults<TitleEntity>
     
     @State var showAlert = false
     
@@ -72,6 +77,24 @@ struct ProfileView: View {
                                     alignment: .center
                                 )
                         }
+                        
+                        
+                        // Fav list
+                        LazyVStack(alignment: .leading) {
+                            Text("Favorites")
+                                .font(.system(size: 22).bold())
+                                .foregroundColor(.primary)
+                            
+                            ForEach(favoriteRepository.favList) { title in
+                                if title.firstAirDate != nil {
+                                    ListCellView(viewModel: ListCellViewModel(title: title, genreList: GenreResponse.example1()))
+                                } else {
+                                    ListCellView(viewModel: ListCellViewModel(title: title, genreList: GenreResponse.example1()))
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 32)
+                        
                     }
                     .alert("Options",
                            isPresented: $showAlert,
